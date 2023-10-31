@@ -57,6 +57,22 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Home\\About1.jpg",
+      "PackagePath": "staticwebassets\\images\\Home\\About1.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Home\\About2.jpg",
+      "PackagePath": "staticwebassets\\images\\Home\\About2.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Home\\About3.jpg",
+      "PackagePath": "staticwebassets\\images\\Home\\About3.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Home\\HomepageBackground.jpg",
+      "PackagePath": "staticwebassets\\images\\Home\\HomepageBackground.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Education.Site.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

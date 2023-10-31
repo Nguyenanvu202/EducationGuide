@@ -1,0 +1,139 @@
+﻿@page "/home"
+@using System.Text.Json;
+<div class = "header">
+	<div class = "ImgHP"></div>
+	<div class = "Text">
+
+		<h1 class = "Title">Unlock Your Potential With Our Expert Tutors</h1>
+	
+		<p class = "SubTitle" style="text-align: center;">A companion who accompanies your child on the journey to conquer knowledge!</p>
+	</div>
+</div>
+
+<div class = "Intro">
+	<h1 class = "Title">Supporting education and innovation.</h1>
+	<a class = "Button" href = '/Our Vision'>Our Vision</a>
+
+	
+	<p class = "Content">Our commitment to supporting education and innovation goes beyond words—it's woven into the very fabric of our organization. We take pride in the positive impact we have on the lives of our students, the community, and the world as a whole. 
+		
+	</p>
+	<p class = "Content">
+		Join us on this journey to empower the next generation of leaders and thinkers, and together, we'll create a brighter, more innovative, and educated future for all.
+
+	</p>
+	
+</div>
+
+
+<div class="About">
+	@*About1*@
+	<div class = "About1">
+			<h1 class = "Title">Materials for Learning</h1>
+		<a class = "Button" href = '/Our Vision'>Learn More</a>
+
+		<p class = "Content">At EducationGuide, we firmly believe that knowledge is the key to unlocking your full potential. Our commitment to your success starts with the unparalleled learning materials we provide. Each of our resources is carefully curated, precisely tailored, and designed to cater to your unique learning needs. We understand that no two students are the same, and our comprehensive library of materials reflects that diversity. 
+
+		</p>
+		<img class = "Image" src="images/Home/About1.jpg" alt="About1" />
+	</div>
+
+	@*About2*@
+	<div class = "About2">
+			<h1 class = "Title">Continuing Education for Teachers</h1>
+		<a class = "Button" href = '/Our Vision'>Learn More</a>
+
+		<p class = "Content">Your journey to becoming an even more inspiring educator begins here. Discover a world of professional growth with our dynamic courses, expert instructors, and flexible learning options.Stay at the forefront of education. Our Continuing Education for Teachers is designed to keep you ahead of the curve, equipped with the latest strategies and best practices. 
+
+		</p>
+		<img class = "Image" src="images/Home/About2.jpg" alt="About2" />
+	</div>
+
+	@*About3*@
+	<div class = "About3">
+			<h1 class = "Title">Support for Communities</h1>
+		<a class = "Button" href = '/Our Vision'>Learn More</a>
+
+		<p class = "Content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim augue eu est fringilla fringilla quis vitae odio. Vestibulum ut aliquam sapien. Maecenas enim magna, laoreet et libero et, vehicula pharetra augue. Praesent ut justo scelerisque, tempus est ac, vestibulum ipsum. 
+
+		</p>
+		<img class = "Image" src="images/Home/About3.jpg" alt="About3" />
+	</div>
+</div>
+
+<div class = "Slogan" style = "padding: 75px 5%">
+	<h1 class = "Content">
+	“With the support from Education Guild, we have been able to serve our students better than ever.”
+	</h1>
+	<div class = "SubContent">
+		— Nguyen An Vu, Founder of Education Guild
+	</div>
+</div>
+
+
+<div class = "Contact" style = "padding-bottom : 75px">
+	<div class = "TitleGroup" >
+		<h1 class = "Title" style = "font-weight:bold">
+			Contact
+		</h1>
+		<p class = "STitle">
+			Feel free to contact us with any questions.
+		</p>
+	</div>
+	<div class = "Content">
+
+		@*contact-company*@
+		<div class = "Contact-col">
+			<h5 class = "Location">
+
+			114 Tô Ký Quận 12, Thành Phố HCM
+			</h5>
+			<h5 class = "Phone">
+				0901312409
+			</h5>
+			<h5 class = "Email">
+				sechii202@gmail.com
+			</h5>
+		</div>
+	@*location*@
+		<div class= "Location">
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.292778508442!2d106.6170108759066!3d10.86532175754599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b124a55b4f3%3A0xe1fa4e4aea38422b!2zMTE0IFTDom4gQ2jDoW5oIEhp4buHcCAxOCwgVMOibiBDaMOhbmggSGnhu4dwLCBRdeG6rW4gMTIsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1698771546092!5m2!1svi!2s"
+			="600"
+			="450"
+			style="border: 0"
+			allowfullscreen=""
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			></iframe>
+		</div>
+		
+	
+	@*Contact form*@
+		<div class = "ContactForm">
+		<input class = "Name" type = "Name" placeholder = "Name" style = "border: 1px;
+		padding: 11px 10px;
+		border-style:groove;"/>
+
+		<input class = "Email" type = "Email" placeholder = "Email" style = "border: 1px; padding: 11px 10px;
+		border-style:groove"/>
+
+		<input class = "Message" type = "Message" placeholder = "Message" style = "border: 1px;
+		padding: 11px 10px;
+		border-style:groove;" />
+		<button class = "Button" type = "Submit" >Submit</button>	
+	</div>
+	</div>
+
+
+</div>
+	<div class = "footer" style = "padding: 60px 0 120px 0">
+		<h3 strong>Education Guide</h3>
+		<h5>Số 70 đường Tô Ký, 
+
+Phường Tân Chánh Hiệp, Quận 12, Thành Phố Hồ Chí Minh</h5>
+	</div>
+
+@code {
+	
+}

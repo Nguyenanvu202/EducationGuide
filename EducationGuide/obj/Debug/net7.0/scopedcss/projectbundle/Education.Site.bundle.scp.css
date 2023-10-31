@@ -1,140 +1,366 @@
-/* _content/Education.Site/Shared/MainLayout.razor.rz.scp.css */
-.page[b-qj2cjtehed] {
+/* _content/Education.Site/Pages/Home/Home.razor.rz.scp.css */
+
+.header[b-9sajjhp9gy] {
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
-main[b-qj2cjtehed] {
-    flex: 1;
+    .header .ImgHP[b-9sajjhp9gy] {
+        padding-top: 50%;
+        background-image: url('images/Home/HomepageBackground.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: brightness(80%);
+        background-position: 50% 50%;
+    }
+
+    .header .Text[b-9sajjhp9gy] {
+        position: absolute;
+        bottom: 25px;
+        color: white;
+        text-align: center;
+        transform: translate(-50%);
+        left: 50%
+    }
+
+    .header .Title[b-9sajjhp9gy] {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-weight: 650;
+    }
+
+.Intro[b-9sajjhp9gy] {
+    padding: 75px 0;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+        "Title Content"
+        "Button Content";
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-.sidebar[b-qj2cjtehed] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-.top-row[b-qj2cjtehed] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-    .top-row[b-qj2cjtehed]  a, .top-row .btn-link[b-qj2cjtehed] {
-        white-space: nowrap;
-        margin-left: 1.5rem;
+    .Intro .Title[b-9sajjhp9gy] {
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: 400;
+        text-align: start;
+        font-size: 60px;
+        line-height: 1.45;
+        color: #000000;
+        padding: 10px 12px;
     }
 
-    .top-row a:first-child[b-qj2cjtehed] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row:not(.auth)[b-qj2cjtehed] {
-        display: none;
-    }
-
-    .top-row.auth[b-qj2cjtehed] {
-        justify-content: space-between;
-    }
-
-    .top-row a[b-qj2cjtehed], .top-row .btn-link[b-qj2cjtehed] {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 641px) {
-    .page[b-qj2cjtehed] {
-        flex-direction: row;
-    }
-
-    .sidebar[b-qj2cjtehed] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row[b-qj2cjtehed] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row[b-qj2cjtehed], article[b-qj2cjtehed] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
-/* _content/Education.Site/Shared/NavMenu.razor.rz.scp.css */
-.navbar-toggler[b-8ntxr3ddgn] {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.top-row[b-8ntxr3ddgn] {
-    height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.navbar-brand[b-8ntxr3ddgn] {
-    font-size: 1.1rem;
-}
-
-.oi[b-8ntxr3ddgn] {
-    width: 2rem;
-    font-size: 1.1rem;
-    vertical-align: text-top;
-    top: -2px;
-}
-
-.nav-item[b-8ntxr3ddgn] {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-}
-
-    .nav-item:first-of-type[b-8ntxr3ddgn] {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type[b-8ntxr3ddgn] {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item[b-8ntxr3ddgn]  a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
-
-.nav-item[b-8ntxr3ddgn]  a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: white;
-}
-
-.nav-item[b-8ntxr3ddgn]  a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
-
-@media (min-width: 641px) {
-    .navbar-toggler[b-8ntxr3ddgn] {
-        display: none;
-    }
-
-    .collapse[b-8ntxr3ddgn] {
-        /* Never collapse the sidebar for wide screens */
+    .Intro .Button[b-9sajjhp9gy] {
+        grid-area: Button;
+        zoom: 1;
         display: block;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        font-size: 20px;
+        padding: 16px 28px;
+        font-family: roboto, helvetica, sans-serif;
+        place-self: start;
+        background: #a3826c;
+        color: #fff;
+        margin: unset;
+        font-weight: 400;
+        border-radius: 4px;
+        transition: all 0.15s;
+        list-style: none;
+        font-style: normal;
     }
+
+    .Intro .Content[b-9sajjhp9gy] {
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        word-wrap: break-word;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 1.5;
+        color: #000000;
+        padding: 10px 12px;
+    }
+
+.About[b-9sajjhp9gy] {
+    padding: 75px 3%;
+    background-color: rgb(62, 61, 61);
+}
+
+    .About .About1[b-9sajjhp9gy] {
+        display: grid;
+        padding: 2%;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+            "Image Title"
+            "Image Content"
+            "Image Button";
+    }
+
+.About1 .Title[b-9sajjhp9gy] {
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    font-weight: bold;
+    text-align: left;
+    font-size: 48px;
+    line-height: 1.4;
+    color: #ffffff;
+    padding-left: 5%;
+}
+
+.About1 .Content[b-9sajjhp9gy] {
+    align-items: center;
+    grid-area: Content;
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    word-wrap: break-word;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #fff;
+    padding-left: 5%;
+}
+
+.About1 .Button[b-9sajjhp9gy] {
+    grid-area: Button;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 16px 28px;
+    font-family: roboto, helvetica, sans-serif;
+    place-self: start;
+    background: #a3826c;
+    color: #fff;
+    margin: unset;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.15s;
+    list-style: none;
+    font-style: normal;
+}
+
+.About1 .Image[b-9sajjhp9gy] {
+    grid-area: Image;
+    width: 100%;
+    height: 100%;
+    padding-right: 2%;
+}
+
+/*About2*/
+.About[b-9sajjhp9gy] {
+    padding: 115px 3%;
+    background-color: rgb(62, 61, 61);
+}
+
+    .About .About2[b-9sajjhp9gy] {
+        padding: 2%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+            "Title Image"
+            "Content Image"
+            "Button Image";
+    }
+
+.About2 .Title[b-9sajjhp9gy] {
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    font-weight: bold;
+    text-align: left;
+    font-size: 48px;
+    line-height: 1.4;
+    color: #ffffff;
+    padding-right: 5%;
+}
+
+.About2 .Content[b-9sajjhp9gy] {
+    align-items: center;
+    grid-area: Content;
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    word-wrap: break-word;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #fff;
+    padding-right: 5%;
+}
+
+.About2 .Button[b-9sajjhp9gy] {
+    grid-area: Button;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 16px 28px;
+    font-family: roboto, helvetica, sans-serif;
+    place-self: start;
+    background: #a3826c;
+    color: #fff;
+    margin: unset;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.15s;
+    list-style: none;
+    font-style: normal;
+}
+
+.About2 .Image[b-9sajjhp9gy] {
+    grid-area: Image;
+    width: 100%;
+    height: 100%;
+    padding-left: 2%;
+}
+
+/*About 3*/
+.About[b-9sajjhp9gy] {
+    padding: 115px 3%;
+    background-color: rgb(62, 61, 61);
+}
+
+    .About .About3[b-9sajjhp9gy] {
+        padding: 2%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+            "Image Title"
+            "Image Content"
+            "Image Button";
+    }
+
+.About3 .Title[b-9sajjhp9gy] {
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    font-weight: bold;
+    text-align: left;
+    font-size: 48px;
+    line-height: 1.4;
+    color: #ffffff;
+    padding-left: 5%;
+}
+
+.About3 .Content[b-9sajjhp9gy] {
+    align-items: center;
+    grid-area: Content;
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    word-wrap: break-word;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #fff;
+    padding-left: 5%;
+}
+
+.About3 .Button[b-9sajjhp9gy] {
+    grid-area: Button;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 16px 28px;
+    font-family: roboto, helvetica, sans-serif;
+    place-self: start;
+    background: #a3826c;
+    color: #fff;
+    margin: unset;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.15s;
+    list-style: none;
+    font-style: normal;
+}
+
+.About3 .Image[b-9sajjhp9gy] {
+    grid-area: Image;
+    width: 100%;
+    height: 100%;
+    padding-right: 2%;
+}
+
+.Slogan[b-9sajjhp9gy] {
+    background-color: rgb(163, 130, 108);
+}
+
+    .Slogan .Content[b-9sajjhp9gy] {
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .Slogan .SubContent[b-9sajjhp9gy] {
+        color: #fff;
+    }
+
+.Contact[b-9sajjhp9gy] {
+    padding: 75px 5%;
+}
+
+    .Contact .TitleGroup[b-9sajjhp9gy] {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .Contact .Content[b-9sajjhp9gy] {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "Form Map Info"
+    }
+
+        .Contact .Content .ContactForm[b-9sajjhp9gy] {
+            display: grid;
+            grid-area: Form;
+        }
+        .Contact .Content .Contact-col[b-9sajjhp9gy]{
+            grid-area:Info;
+            
+        }
+
+
+.footer[b-9sajjhp9gy] {
+    background-color: rgb(232, 234, 236);
+}
+/* _content/Education.Site/Shared/MainLayout.razor.rz.scp.css */
+.nav-bar-container[b-qj2cjtehed] {
+    position: absolute;
+    top: 0;
+    left:3% ;
+    right: 3%;
+    z-index: 100; 
+}
+
+
+/* _content/Education.Site/Shared/NavMenu.razor.rz.scp.css */
+.navbar[b-8ntxr3ddgn] {
+    padding: 30px 30px 30px 20px;
     
-    .nav-scrollable[b-8ntxr3ddgn] {
-        /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
-    }
+    
+}
+
+.name[b-8ntxr3ddgn] {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: white
 }
