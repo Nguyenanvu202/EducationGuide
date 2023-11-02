@@ -77,3 +77,7 @@ E:\EducationGuide\EducationGuide\EducationGuide\bin\Debug\net7.0\Infrastructure.
 E:\EducationGuide\EducationGuide\EducationGuide\bin\Debug\net7.0\Infrastructure.pdb
 E:\EducationGuide\EducationGuide\EducationGuide\bin\Debug\net7.0\Core.pdb
 E:\EducationGuide\EducationGuide\EducationGuide\obj\Debug\net7.0\scopedcss\Pages\Home\Home.razor.rz.scp.css
+E:\EducationGuide\EducationGuide\EducationGuide\obj\Debug\net7.0\scopedcss\Shared\Footer.razor.rz.scp.css
+E:\EducationGuide\EducationGuide\EducationGuide\bin\Debug\net7.0\AutoMapper.dll
+E:\EducationGuide\EducationGuide\EducationGuide\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\EducationGuide\EducationGuide\EducationGuide\obj\Debug\net7.0\scopedcss\Pages\Tutors\Tutors.razor.rz.scp.css

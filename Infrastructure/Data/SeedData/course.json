@@ -1,18 +1,18 @@
 [
   {
     "Id": 1,
-    "Name": "MuXeDap"
+    "Name": "Math"
   },
   {
     "Id": 2,
-    "Name": "FullFace"
+    "Name": "Literature"
   },
   {
     "Id": 3,
-    "Name": "BaPhanTu"
+    "Name": "English"
   },
   {
     "Id": 4,
-    "Name": "GangTay"
+    "Name": "Chemistry"
   }
 ]

@@ -28,10 +28,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/EducationGuide/EducationGuide/EducationGuide/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -43,6 +39,14 @@ build_metadata.AdditionalFiles.CssScope =
 [E:/EducationGuide/EducationGuide/EducationGuide/Pages/Home/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-9sajjhp9gy
+
+[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Tutors/Tutors.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JzXFR1dG9ycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-aj9uvyae4b
+
+[E:/EducationGuide/EducationGuide/EducationGuide/Shared/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-zb8bdggvxk
 
 [E:/EducationGuide/EducationGuide/EducationGuide/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

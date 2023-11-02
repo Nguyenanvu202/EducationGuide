@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <None Include="wwwroot\images\Home\HomepageBackground.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\images\Home\HomepageBackground.jpg" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

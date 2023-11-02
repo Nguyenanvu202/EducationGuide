@@ -338,7 +338,14 @@
         }
 
 
-.footer[b-9sajjhp9gy] {
+
+/* _content/Education.Site/Pages/Tutors/Tutors.razor.rz.scp.css */
+.Title[b-aj9uvyae4b]{
+    margin-top: 90px;
+}
+/* _content/Education.Site/Shared/Footer.razor.rz.scp.css */
+
+.footer[b-zb8bdggvxk] {
     background-color: rgb(232, 234, 236);
 }
 /* _content/Education.Site/Shared/MainLayout.razor.rz.scp.css */

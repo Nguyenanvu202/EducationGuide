@@ -1,3 +1,5 @@
+using Core.Mapping;
+using Core.Models.Repository;
 using EducationGuide.Data;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Components;
@@ -9,9 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+builder.Services.AddDbContext<PageContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddScoped<ITutorRepository, TutorRepository>();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 var app = builder.Build();
 
