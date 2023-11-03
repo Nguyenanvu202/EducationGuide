@@ -1,4 +1,16 @@
 ﻿@page "/tutors"
+@using Core.Models.Repository;
+@using Core
+@using Infrastructure
+@using Infrastructure.Data;
+@inject ITutorRepository tutorRepository;
+
+<div class = "card-column">
+	@foreach (var tutor in _tutors)
+	{
+		
+	}
+</div>
 
 
 <h1 class = "Title">Tutors</h1>
@@ -14,4 +26,10 @@ Clear and concise communication is essential in the learning process. Our tutors
 </p>
 @code {
 
+	private List<Core.Models.Domain.Tutors> _tutors = new List<Core.Models.Domain.Tutors>();
+	protected override async Task OnInitializedAsync()
+	{
+		_tutors = await tutorRepository.GetAllTutorsAsync();
+		await base.OnInitializedAsync();
+	}
 }

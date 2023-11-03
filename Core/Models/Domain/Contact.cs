@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core.Models.Domain
 {
-    public class ContactForm
-    {
-        public int Id { get; set; }
+    public class Contact : BaseEntity
+	{
         public string Name { get; set; }
         public string Email { get; set; }
         public string Message { get; set; }

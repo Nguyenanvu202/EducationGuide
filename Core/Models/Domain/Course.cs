@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core.Models.Domain
 {
-	public class Course
+	public class Course : BaseEntity
 	{
-        public int Id { get; set; }
         public string Subject { get; set; }
+
+		public virtual ICollection<CourseTutor> CourseTutors { get; set; }
     }
 }

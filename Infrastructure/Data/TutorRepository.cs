@@ -43,13 +43,21 @@ namespace Infrastructure.Data
 
 		public async Task<List<Tutors>> GetAllTutorsAsync()
 		{
-			var tutor = await pageContext.Tutors.ToListAsync();
-			return tutor;
+			try
+			{
+				var tutor = await pageContext.Tutors.Include("CourseTutors").ToListAsync();
+				return tutor;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+			
 		}
 
 		public async Task<Tutors> GetTutorsAsync(int id)
 		{
-			var tutor = await pageContext.Tutors.FirstOrDefaultAsync(x => x.Id == id);
+			var tutor = await pageContext.Tutors.Include("CourseTutors").Include("Course").FirstOrDefaultAsync(x => x.Id == id);
 			if(tutor == null)
 			{
 				return null;

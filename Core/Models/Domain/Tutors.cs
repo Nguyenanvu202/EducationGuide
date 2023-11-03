@@ -7,19 +7,16 @@ using System.Threading.Tasks;
 
 namespace Core.Models.Domain
 {
-    public class Tutors
+    public class Tutors : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string ImgUrl { get; set; }
         public string Phone { get; set; }
         public string FacebookUrl { get; set; }
         public string Email { get; set; }
         public string Description { get; set; }
-        public int GenderId { get; set; }
-        public int CourseId { get; set; }
+        public int Gender { get; set; }
 
-        public Gender Gender { get; set; }
-        public Course Course { get; set; }
+        public virtual ICollection<CourseTutor> CourseTutors { get; set; }
     }
 }

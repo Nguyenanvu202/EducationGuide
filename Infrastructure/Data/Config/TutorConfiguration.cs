@@ -5,21 +5,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.Config
 {
-        public class TutorConfiguration : IEntityTypeConfiguration<Tutors>
-        {
-            
-            public void Configure(EntityTypeBuilder<Tutors> builder)
-            {
-                builder.Property(p => p.Id).IsRequired();
-                builder.Property(p => p.Name).IsRequired().HasMaxLength(255);
-                builder.Property(p => p.FacebookUrl).IsRequired();
-                builder.Property(p => p.Phone).IsRequired();
-                builder.Property(p => p.ImgUrl).IsRequired();
-                builder.Property(p => p.Email).IsRequired();
-                builder.Property(p => p.Description).IsRequired();
+	public class TutorConfiguration : IEntityTypeConfiguration<Tutors>
+	{
 
-                builder.HasOne(p => p.Gender).WithMany().HasForeignKey(p => p.GenderId);
-                builder.HasOne(p => p.Course).WithMany().HasForeignKey(p => p.CourseId);
-            }
-        }
+		public void Configure(EntityTypeBuilder<Tutors> builder)
+		{
+			builder.ToTable(nameof(Tutors));
+			builder.HasKey(x => x.Id);
+			builder.Property(p => p.Name).IsRequired().HasMaxLength(255);
+			builder.Property(p => p.FacebookUrl).IsRequired();
+			builder.Property(p => p.Phone).IsRequired();
+			builder.Property(p => p.ImgUrl).IsRequired();
+			builder.Property(p => p.Email).IsRequired();
+			builder.Property(p => p.Description).IsRequired();
+
+			builder.HasMany(p => p.CourseTutors).WithOne(p => p.Tutors).HasForeignKey(p => p.TutorId);
+
+			builder.Property(p => p.CreatedBy).IsRequired().HasMaxLength(255);
+			builder.Property(p => p.CreatedDate).IsRequired();
+			builder.Property(p => p.UpdatedBy).HasMaxLength(255);
+			builder.Property(p => p.UpdatedDate);
+		}
+	}
 }

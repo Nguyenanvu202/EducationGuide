@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "Math"
+  },
+  {
+    "Id": 2,
+    "Name": "Literature"
+  },
+  {
+    "Id": 3,
+    "Name": "English"
+  },
+  {
+    "Id": 4,
+    "Name": "Chemistry"
+  }
+]

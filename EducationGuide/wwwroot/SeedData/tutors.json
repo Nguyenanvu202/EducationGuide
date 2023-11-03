@@ -1,0 +1,123 @@
+[
+  {
+    "Id": 1,
+    "Name": "Amelia Johnson",
+    "ImgUrl": "/images/Tutor/tutor-1",
+    "Phone": "0123456789",
+    "Email": "john.doe@example.com",
+    "Description": "Amelia Johnson is a dedicated elementary school teacher. She has a passion for fostering a love of learning in her young students, and her classroom is always a vibrant and welcoming space for education and creativity.",
+    "GenderId": 2,
+    "CourseId": 1
+  },
+
+  {
+    "Id": 2,
+    "Name": "Benjamin Parker",
+    "ImgUrl": "/images/Tutor/tutor-2",
+    "Phone": "0456789123",
+    "Email": "jane.smith@gmail.com",
+    "Description": "Benjamin Parker is a high school math tutor. His patient and methodical teaching approach has helped many students conquer their fear of math and excel in their studies.",
+    "GenderId": 1,
+    "CourseId": 2
+  },
+
+  {
+    "Id": 3,
+    "Name": "Chloe Mitchell",
+    "Description": "Chloe Mitchell is an English literature professor at a prestigious university. She's known for her insightful analysis and her ability to make classic literature come alive for her students.",
+    "ImgUrl": "/images/Tutor/tutor-3",
+    "Phone": "0789012345",
+    "Email": "sarah.johnson@yahoo.com",
+    "GenderId": 2,
+    "CourseId": 3
+  },
+
+  {
+    "Id": 4,
+    "Name": "DavidAnderson",
+    "Description": "David Anderson is a history teacher with a knack for bringing the past to life. His dynamic teaching style keeps students engaged, and his enthusiasm for history is contagious.",
+    "ImgUrl": "/images/Tutor/tutor-4",
+    "Phone": "0567890123",
+    "Email": "michael.wilson@hotmail.com",
+    "GenderId": 1,
+    "CourseId": 4
+  },
+
+  {
+    "Id": 5,
+    "Name": "Emily Davis",
+    "Description": "Emily Davis is a dedicated special education teacher. She has a compassionate and nurturing approach, helping students with diverse needs reach their full potential.",
+    "ImgUrl": "/images/Tutor/tutor-5",
+    "Phone": "0890123456",
+    "Email": "emily.brown@outlook.com",
+    "GenderId": 2,
+    "CourseId": 1
+  },
+
+  {
+    "Id": 6,
+    "Name": "Felix Hernandez",
+    "Description": "Felix Hernandez is a physics professor at a renowned research university. He is known for his groundbreaking research and his ability to simplify complex concepts for his students.",
+    "ImgUrl": "/images/Tutor/tutor-6",
+    "Phone": "0234567891",
+    "Email": "david.miller@aol.com",
+    "GenderId": 1,
+    "CourseId": 2
+  },
+
+  {
+    "Id": 7,
+    "Name": "Grace Taylor",
+    "Description": "Grace Taylor is a music teacher who offers private lessons to students of all ages. Her passion for music and her patient guidance have helped countless individuals discover their musical talents.",
+    "ImgUrl": "/images/Tutor/tutor-7",
+    "Phone": "0345678901",
+    "Email": "lisa.davis@icloud.com",
+    "GenderId": 2,
+    "CourseId": 3
+  },
+
+  {
+    "Id": 8,
+    "Name": "Henry Martinez",
+    "Description": "Henry Martinez is a language tutor, fluent in multiple languages. He helps his students become confident and skilled communicators, whether it's for business or travel.",
+    "ImgUrl": "/images/Tutor/tutor-8",
+    "Phone": "0321098765",
+    "Email": "kevin.moore@protonmail.com",
+    "GenderId": 1,
+    "CourseId": 4
+  },
+
+  {
+    "Id": 9,
+    "Name": "Isabella Wilson",
+    "Description": "Isabella Wilson is a dedicated elementary school teacher. She is passionate about creating a nurturing and inclusive classroom environment where every student can thrive.",
+    "ImgUrl": "/images/Tutor/tutor-9",
+    "Phone": "0789012345",
+    "Email": "amy.anderson@live.com",
+    "GenderId": 2,
+    "CourseId": 1
+  },
+
+  {
+    "Id": 10,
+    "Name": "Jack Thompson",
+    "Description": "Jack Thompson is a chemistry professor who excels at making complex chemical concepts understandable and exciting. His students appreciate his engaging teaching style.",
+    "ImgUrl": "/images/Tutor/tutor-10",
+    "Phone": "0456789012",
+    "Email": "mark.walker@yandex.com",
+    "GenderId": 3,
+    "CourseId": 2
+  },
+
+  {
+    "Id": 11,
+    "Name": "Katherine Adams",
+    "Description": "Katherine Adams is a dedicated SAT and ACT tutor. She helps high school students prepare for their college entrance exams with personalized strategies and test-taking techniques.",
+    "ImgUrl": "/images/Tutor/tutor-11",
+    "Phone": "0123456789",
+    "Email": "laura.clark@mail.com",
+    "GenderId": 3,
+    "CourseId": 3
+  },
+  
+]

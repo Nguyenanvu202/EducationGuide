@@ -73,6 +73,50 @@
       "PackagePath": "staticwebassets\\images\\Home\\HomepageBackground.jpg"
     },
     {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\pexels-bm-capture-2232981.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\pexels-bm-capture-2232981.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\pexels-daniel-xavier-1239288.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\pexels-daniel-xavier-1239288.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\pexels-ibadat-singh-2586823.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\pexels-ibadat-singh-2586823.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\pexels-italo-melo-2379005.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\pexels-italo-melo-2379005.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-1.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-1.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-2.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-2.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-3.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-3.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-4.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-4.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-5.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-5.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-6.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-6.jpg"
+    },
+    {
+      "Id": "E:\\EducationGuide\\EducationGuide\\EducationGuide\\wwwroot\\images\\Tutor\\tutor-7.jpg",
+      "PackagePath": "staticwebassets\\images\\Tutor\\tutor-7.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Education.Site.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
