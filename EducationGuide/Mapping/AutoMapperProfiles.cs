@@ -13,7 +13,7 @@ namespace Core.Mapping
 	{
 		public AutoMapperProfiles() 
 		{
-			CreateMap<TutorDto, Tutors>().ReverseMap();
+			CreateMap<TutorCreate, Tutors>().ReverseMap();
 		}
 	}
 }

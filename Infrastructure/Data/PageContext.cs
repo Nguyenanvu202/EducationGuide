@@ -13,17 +13,17 @@ namespace Infrastructure.Data
 {
     public class PageContext : DbContext
     {
-		private readonly ReadJsonFile readJsonFile;
 
-		public PageContext(DbContextOptions<PageContext> options, ReadJsonFile readJsonFile) : base(options)
-			{
-			this.readJsonFile = readJsonFile;
+		public PageContext(DbContextOptions<PageContext> options) : base(options)
+		{
+
 		}
 
 		public DbSet<Page> Pages { get; set; }
 		public DbSet<Section> Sections { get; set; }
         public DbSet<CompanyInfo> CompanyInfos { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+		public DbSet<Slogan> slogans { get; set; }
 
         public DbSet<Tutors> Tutors { get; set; }
 		public DbSet<Course> Courses { get; set; }
@@ -37,13 +37,7 @@ namespace Infrastructure.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			//modelBuilder.Entity<Tutors>().HasData(readJsonFile.SeedTutorsData());
-			//modelBuilder.Entity<Tutors>().HasData(readJsonFile.SeedCourseData());
-			//modelBuilder.Entity<Tutors>().HasData(readJsonFile.SeedGenderData());
-			//modelBuilder.Entity<Page>().ToTable(nameof(Page));
-			//modelBuilder.Entity<Section>().ToTable(nameof(Section));
-
-			//modelBuilder.Entity<Tutors>().HasKey(c => c.Id);
+			
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 		}
 

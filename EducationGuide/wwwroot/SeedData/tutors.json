@@ -46,7 +46,7 @@
   {
     "Id": 5,
     "Name": "Emily Davis",
-    "Description": "Emily Davis is a dedicated special education teacher. She has a compassionate and nurturing approach, helping students with diverse needs reach their full potential.",
+    "Description": "",
     "ImgUrl": "/images/Tutor/tutor-5",
     "Phone": "0890123456",
     "Email": "emily.brown@outlook.com",
@@ -57,7 +57,7 @@
   {
     "Id": 6,
     "Name": "Felix Hernandez",
-    "Description": "Felix Hernandez is a physics professor at a renowned research university. He is known for his groundbreaking research and his ability to simplify complex concepts for his students.",
+    "Description": "",
     "ImgUrl": "/images/Tutor/tutor-6",
     "Phone": "0234567891",
     "Email": "david.miller@aol.com",

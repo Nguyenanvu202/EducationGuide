@@ -1,0 +1,50 @@
+.Title[b-r22auf0z8w] {
+    -webkit-text-size-adjust: 100%;
+    --parent-width: 1440px;
+    list-style: none;
+    text-align: center;
+    color: #222;
+    user-select: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight:bold;
+    padding: 7px;
+    margin: 0;
+}
+.Content[b-r22auf0z8w]{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+.Content .Section[b-r22auf0z8w]{
+    display: grid;
+    grid-template-rows: auto;
+    margin: 1rem;
+}
+.Section .Image[b-r22auf0z8w] {
+    object-fit: cover;
+    width: -webkit-fill-available;
+    height: 500px;
+    align-content: center
+}
+.Section .Name[b-r22auf0z8w] {
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    text-align: left;
+    color: #1D2023;
+    margin: 5px 3px 3px 3px;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-weight: 700;
+
+}
+.Section .SectionContent[b-r22auf0z8w] {
+    align-items: center;
+    word-wrap: break-word;
+    font-style: normal;
+}

@@ -1,9 +1,18 @@
-﻿	<div class = "footer" style = "padding: 60px 0 120px 0">
-		<h3 strong>Education Guide</h3>
-		<h5>Số 70 đường Tô Ký, 
-
-Phường Tân Chánh Hiệp, Quận 12, Thành Phố Hồ Chí Minh</h5>
+﻿@using Core.Models.Domain;
+@using Core.Models.Repository;
+@inject ICompanyInfoRepository _companyInfoRepository
+	<div class = "footer">
+		<h3 strong>@_companyInfo.Name</h3>
+		<h5>Phone: @_companyInfo.Phone</h5>
+		<h5>Email: @_companyInfo.Email</h5>
+		<h5>@_companyInfo.Adress</h5>
 	</div>
 @code {
 
+	CompanyInfo _companyInfo = new CompanyInfo();
+	protected override async Task OnParametersSetAsync()
+	{
+		_companyInfo =await _companyInfoRepository.GetCompanyAsync(1);
+		await base.OnInitializedAsync();
+    }
 }

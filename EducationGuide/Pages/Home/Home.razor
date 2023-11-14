@@ -1,61 +1,42 @@
 ﻿@page "/"
-
 @inject IPageRepository _pageRepository
-@using System.Text.Json;
+@inject ISectionRepository _sectionRepository
+@inject IContactRepository _contactRepository
+@inject ICompanyInfoRepository _companyInfoRepository
 @using Core.Models.Domain;
 @using Core.Models.Repository;
+@using System.Text.Json;
+@using Core.Models.Domain;
 
+<div class = "Section">
 
-<div class = "header">
-	<div class = "ImgHP"></div>
-	<div class = "Text">
-
-		<h1 class = "Title">@_page.Title</h1>
-
-		<p class = "SubTitle" style="text-align: center;">@_page.Description</p>
-	</div>
-</div>
-
-<div class = "Intro">
-	<h1 class = "Title">Supporting education and innovation.</h1>
-	<a class = "Button" href = '/Our Vision'>Our Vision</a>
-
-
-	<p class = "Content">Our commitment to supporting education and innovation goes beyond words—it's woven into the very fabric of our organization. We take pride in the positive impact we have on the lives of our students, the community, and the world as a whole. 
-
-	</p>
-	<p class = "Content">
-		Join us on this journey to empower the next generation of leaders and thinkers, and together, we'll create a brighter, more innovative, and educated future for all.
-
-	</p>
-
-</div>
-
-
-<div class="About">
-	@foreach (var section1 in _page.Sections)
+	@foreach (var section_1 in _sections)
 	{
-		@*About1*@
-			<div class = "About1">
-					<h1 class = "Title">@section1.Title</h1>
-				<a class = "Button" href = '/'>Learn More</a>
 
-				<p class = "Content">@section1.Content 
+			<div class = "@section_1.ClassName">
+			@if (!string.IsNullOrEmpty(section_1.BackgroundUrl))
+			{
+				<img class = "Image" src="@section_1.BackgroundUrl" alt="ClassName" />
+			}
+			<div class = "Text">
 
-				</p>
-				<img class = "Image" src="@section1.ImageUrl" alt="About1" />
+				<h1 class = "Title">@section_1.Title</h1>
+				<p class = "Content">@section_1.Content </p>
+				@if(section_1.ClassName == "Intro")
+				{
+					<a class = "Button" href = "@section_1.ButtonUrl">Our Vision</a>
+				}
+				else
+				{
+					<a class = "Button" href = "@section_1.ButtonUrl">Learn More</a>
+				}
 			</div>
-
+			@if (!string.IsNullOrEmpty(section_1.ImageUrl))
+			{
+				<img class = "Image" src="@section_1.ImageUrl" alt="ClassName" />
+			}
+			</div>
 	}
-</div>
-
-<div class = "Slogan" style = "padding: 75px 5%">
-	<h1 class = "Content">
-	“With the support from Education Guild, we have been able to serve our students better than ever.”
-	</h1>
-	<div class = "SubContent">
-		— Nguyen An Vu, Founder of Education Guild
-	</div>
 </div>
 
 
@@ -72,15 +53,15 @@
 
 		@*contact-company*@
 		<div class = "Contact-col">
-			<h5 class = "Location">
+			<h5 class = "Adress">
 
-			114 Tô Ký Quận 12, Thành Phố HCM
+			Adress: @_companyInfo.Adress
 			</h5>
 			<h5 class = "Phone">
-				0901312409
+				Phone: @_companyInfo.Phone
 			</h5>
 			<h5 class = "Email">
-				sechii202@gmail.com
+				Email: @_companyInfo.Email
 			</h5>
 		</div>
 		@*location*@
@@ -98,31 +79,57 @@
 
 
 		@*Contact form*@
-		<div class = "ContactForm">
-		<input class = "Name" type = "Name" placeholder = "Name" style = "border: 1px;
+	<div class = "ContactForm">
+		<input  @bind-value = "_newContact.Name" class = "Name" type = "Name" placeholder = "Name" style = "border: 1px;
 		padding: 11px 10px;
 		border-style:groove;"/>
 
-		<input class = "Email" type = "Email" placeholder = "Email" style = "border: 1px; padding: 11px 10px;
+		<input @bind-value = "_newContact.Email" class = "Email" type = "Email" placeholder = "Email" style = "border: 1px; padding: 11px 10px;
 		border-style:groove"/>
 
-		<input class = "Message" type = "Message" placeholder = "Message" style = "border: 1px;
+		<input @bind-value = "_newContact.Message" class = "Message" type = "Message" placeholder = "Message" style = "border: 1px;
 		padding: 11px 10px;
 		border-style:groove;" />
-		<button class = "Button" type = "Submit" >Submit</button>	
-	</div>
-	</div>
+		<button class = "Button" @onclick="() => Submitform()" type = "Submit" >Submit</button>	
+			@if (saved)
+			{
 
+			}
+	</div>
 
 </div>
 
 
-@code {
-	private Page _page = new Page();
+</div>
 
-	protected override async Task OnInitializedAsync()
+@code {
+
+	private Page _page = new Page();
+	private List<Section> _sections = new List<Section>();
+	private Contact _newContact = new Contact();
+	private CompanyInfo _companyInfo = new CompanyInfo();
+	protected override async Task OnParametersSetAsync()
 	{
 		_page = await _pageRepository.GetByUrlAsync("/");
+		_sections = await _sectionRepository.GetSectionsByPageId(_page.Id);
+		_companyInfo = await _companyInfoRepository.GetCompanyAsync(1);
 		await base.OnInitializedAsync();
+	}
+
+	public bool saved = false;
+	private async Task Submitform()
+	{
+		saved = false;
+		try
+		{
+			await _contactRepository.CreateContactAsync(_newContact);
+			_newContact = new Contact();
+			saved = true;
+		}
+		catch
+		{
+
+		}
+
 	}
 }

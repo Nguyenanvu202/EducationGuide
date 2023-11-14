@@ -1,0 +1,26 @@
+﻿@page "/ourvision"
+@using Core.Models.Domain;
+@using Core.Models.Repository;
+@inject ISectionRepository _sectionRepository
+
+<h1 class = "Title" style = "margin-bottom : 40px; text-align: center">
+	Our Vision
+</h1>
+<p>&nbsp;</p>
+<div class = "our-vision">
+
+<h3 class = "section-title">@_section.Title</h3>
+<h5 style = "font-weight: 100">@_section.Content</h5>
+<img src = "@_section.ImageUrl" alt ="OurVisionImage"/>
+</div>
+
+@code {
+	private Section _section = new Section();
+	protected override async Task OnParametersSetAsync()
+	{
+
+	_section = await _sectionRepository.GetSectionAsync(10, 26);
+
+		await base.OnInitializedAsync();
+	}
+}

@@ -93,6 +93,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "E:\\EducationGuide\\EducationGuide\\GenericAsset\\GenericAsset.csproj": {
+                "projectPath": "E:\\EducationGuide\\EducationGuide\\GenericAsset\\GenericAsset.csproj"
+              },
               "E:\\EducationGuide\\EducationGuide\\Infrastructure\\Infrastructure.csproj": {
                 "projectPath": "E:\\EducationGuide\\EducationGuide\\Infrastructure\\Infrastructure.csproj"
               }
@@ -109,6 +112,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Blazor.Bootstrap": {
+              "target": "Package",
+              "version": "[1.10.3, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[4.19.0, )"
@@ -129,6 +136,67 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\EducationGuide\\EducationGuide\\GenericAsset\\GenericAsset.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\EducationGuide\\EducationGuide\\GenericAsset\\GenericAsset.csproj",
+        "projectName": "GenericAsset",
+        "projectPath": "E:\\EducationGuide\\EducationGuide\\GenericAsset\\GenericAsset.csproj",
+        "packagesPath": "C:\\Users\\Sechii\\.nuget\\packages\\",
+        "outputPath": "E:\\EducationGuide\\EducationGuide\\GenericAsset\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sechii\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -12,6 +12,8 @@ namespace Core.Models.Domain
         public string Content { get; set; }
         public string? ImageUrl { get; set; }
         public string? BackgroundUrl { get; set; }
+        public string ClassName { get; set; } = string.Empty;
+        public string? ButtonUrl { get; set; }
 
         public int PageId { get; set; }
         public virtual Page Page { get; set; }

@@ -1,0 +1,135 @@
+@import '_content/GenericAsset/GenericAsset.bundle.scp.css';
+
+/* _content/EducationGuide.Admin/Shared/MainLayout.razor.rz.scp.css */
+.page[b-rd167ccktd] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-rd167ccktd] {
+    flex: 1;
+}
+
+.sidebar[b-rd167ccktd] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-rd167ccktd] {
+        display: none;
+    }
+
+    .top-row.auth[b-rd167ccktd] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-rd167ccktd], .top-row .btn-link[b-rd167ccktd] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-rd167ccktd] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-rd167ccktd] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-rd167ccktd] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+
+    .Login[b-rd167ccktd]{
+
+    }
+
+    .content[b-rd167ccktd]{
+        
+    }
+}
+/* _content/EducationGuide.Admin/Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-h6k32klb8o] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-h6k32klb8o] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-h6k32klb8o] {
+    font-size: 1.1rem;
+}
+
+.oi[b-h6k32klb8o] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-h6k32klb8o] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-h6k32klb8o] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-h6k32klb8o] {
+        padding-bottom: 1rem;
+    }
+
+.nav-link[b-h6k32klb8o] {
+    color: #d7d7d7;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+}
+
+/* Additional styles for the logout button */
+.nav-item:last-of-type .RadzenButton[b-h6k32klb8o] {
+    margin-top: 1rem; /* Adjust the margin as needed */
+}
+
+
+.nav-item[b-h6k32klb8o]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-h6k32klb8o]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-h6k32klb8o] {
+        display: none;
+    }
+
+    .collapse[b-h6k32klb8o] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+    
+    .nav-scrollable[b-h6k32klb8o] {
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}

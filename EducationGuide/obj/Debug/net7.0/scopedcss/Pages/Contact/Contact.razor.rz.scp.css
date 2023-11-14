@@ -1,0 +1,126 @@
+
+.contact[b-bj05lb4w3p] {
+  color: #fff;
+  background-color: rgb(61,61,61)
+}
+.contact-box[b-bj05lb4w3p]{
+    background: #000000;
+    display:flex;
+}
+.contact-left[b-bj05lb4w3p]{
+    flex-basis: 60%;
+    padding: 40px 60px;
+}
+.contact-right[b-bj05lb4w3p] {
+    flex-basis: 60%;
+    padding: 40px;
+    background: #a3826c;
+    color: #fff;
+}
+h1[b-bj05lb4w3p]{
+    margin-bottom: 10px;
+    text-align:center;
+
+}
+.container p[b-bj05lb4w3p] {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.input-row[b-bj05lb4w3p]{
+    display: flex;
+    margin-bottom: 20px;
+        width:100%;
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    margin: 0;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    font-family: inherit;
+    background: #fff;
+    color: #444;
+    font-size: 18px;
+    padding: 11px 10px;
+    border: 1px solid #bbb;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.input-row .input-group[b-bj05lb4w3p]{
+    flex-basis: 45%;
+}
+
+input[b-bj05lb4w3p] {
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    margin: 0;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    font-family: inherit;
+    background: #fff;
+    color: #444;
+    font-size: 18px;
+    padding: 11px 10px;
+    border: 1px solid #bbb;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    margin: 4px 4px 4px 0;
+
+}
+
+textarea[b-bj05lb4w3p] {
+    width:100%;
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    margin: 0;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    font-family: inherit;
+    background: #fff;
+    color: #444;
+    font-size: 18px;
+    padding: 11px 10px;
+    border: 1px solid #bbb;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+label[b-bj05lb4w3p]{
+    margin-bottom: 6px;
+    display: block;
+    
+}
+
+button[b-bj05lb4w3p] {
+    grid-area: Button;
+    zoom: 1;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 16px 28px;
+    font-family: roboto, helvetica, sans-serif;
+    place-self: start;
+    background: #a3826c;
+    color: #fff;
+    margin: unset;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.15s;
+    list-style: none;
+    font-style: normal;
+}
+
+.contact-right h3[b-bj05lb4w3p]{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+

@@ -1,0 +1,34 @@
+﻿@page "/aboutus"
+@using Core.Models.Repository;
+@using Core.Models.Domain;
+@using Infrastructure
+@using Infrastructure.Data;
+@inject ISectionRepository _sectionRepository
+
+
+<div class="AboutUs">
+    <h3 class="Title">About Us</h3>
+    <div class="component-overlay" style="padding: 7px">
+        <p></p>
+    </div>
+    <div class="Content">
+        @foreach (var section1 in _section)
+        {
+            <div class="Section">
+                <img class="Image" style = "width = 20px" src="@section1.ImageUrl" alt="" />
+                <h3 class="Name">@section1.Title</h3>
+                <p class="SectionContent">@section1.Content</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    List<Section> _section = new List<Section>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _section = await _sectionRepository.GetSectionsByPageId(9);
+    }
+}
+

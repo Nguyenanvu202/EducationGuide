@@ -79,13 +79,9 @@ namespace Infrastructure.Data
 				return null;
 			}
 
-			//existPage.UpdatedDate = pages.;
-			//existPage.FacebookUrl = tutors.FacebookUrl;
-			//existPage.ImgUrl = tutors.ImgUrl;
-			//existPage.Description = tutors.Description;
-			//existPage.Email = tutors.Email;
-			//existPage.Phone = tutors.Phone;
-
+			existPage.UpdatedDate = pages.UpdatedDate;
+			existPage.UpdatedBy = pages.UpdatedBy;
+			existPage.Url = pages.Url;
 			return existPage;
 		}
 	}

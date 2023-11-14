@@ -1,0 +1,96 @@
+﻿@page "/tutors"
+@using Core.Models.Repository;
+@using Core.Models.Domain;
+@using Infrastructure
+@using Infrastructure.Data;
+@inject ITutorRepository _tutorRepository;
+@inject ISectionRepository _sectionRepository;
+<div class = "Tutor" style = "margin-top: 120px">
+
+<div class = "tutors-container" >
+	
+		@foreach(var tutor in _tutors)
+		{
+			<div class="tutor" @onclick="() => ShowTutorInfo(tutor)">
+				<img src="@tutor.ImgUrl" alt="@tutor.Name" />
+				<h5 class="name">@tutor.Name</h5>
+			</div>
+		}
+  </div>
+
+@if (_selectedTutor != null)
+	{
+
+<div class="tutor-preview">
+
+	<div class="preview">
+		<Icon Name="IconName.X" Size = "IconSize.x5" style = "position: absolute; cursor: pointer; padding: 10px 15px; right: 0" 
+		@onclick = "() => CloseTutorPreview()"></Icon>
+		<img src="@_selectedTutor.ImgUrl" alt="@_selectedTutor.Name" class="tutor-image">
+
+				<div class="tutor-info">
+				<h5 class="Name">Name: @_selectedTutor.Name</h5>
+				<p></p>
+				<h5 class="Gender">Sex: @(_selectedTutor.Gender == 1 ? "Female" : "Male")</h5>
+				<p></p>
+				<h5 class = "Subject">Subject: @foreach(var tutor in _tutorCourse.CourseTutors)
+						{
+							@tutor.Course.Subject
+							@if (tutor == _tutorCourse.CourseTutors.Last())
+							{
+								<text>.</text>
+							}
+							else
+							{
+								<text>, </text>
+							}
+						}
+					</h5>
+				<p></p>
+				<h5 class="Phone">Phone: @_selectedTutor.Phone</h5>
+				<p></p>
+				<h5 class="Facebook">Facebook: @_selectedTutor.FacebookUrl</h5>
+				<p></p>
+				<h5 class="Email">Email: @_selectedTutor.Email</h5>
+				<p></p>
+				<h5 class="Description"> @_selectedTutor.Description</h5>
+		</div>
+
+	</div>
+</div>
+}
+
+
+<h1 class = "Title">@_section.Title</h1>
+	<p class = "page">
+		@_section.Content
+	</p>
+
+</div>
+
+@code {
+	Section _section = new Section();
+	private List<Tutors> _tutors = new List<Tutors>();
+	private Tutors _tutorCourse = new Tutors();
+
+	protected override async Task OnInitializedAsync()
+	{
+		_section = await _sectionRepository.GetSectionAsync(7, 21);
+		_tutors = await _tutorRepository.GetAllTutorsAsync();
+		await base.OnInitializedAsync();
+	}
+
+	Tutors _selectedTutor;
+	async Task ShowTutorInfo(Tutors tutor)
+	{
+		_tutorCourse = await _tutorRepository.GetTutorsAsync(tutor.Id);
+		_selectedTutor = _tutorCourse;
+
+	}
+
+	void CloseTutorPreview()
+	{
+		_selectedTutor = null;
+	}
+
+}

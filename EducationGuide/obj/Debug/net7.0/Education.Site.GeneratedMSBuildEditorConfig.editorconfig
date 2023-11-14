@@ -36,13 +36,25 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/EducationGuide/EducationGuide/EducationGuide/Pages/AboutUs/AboutUs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVc1xBYm91dFVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-r22auf0z8w
+
+[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Contact/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFxDb250YWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-bj05lb4w3p
+
 [E:/EducationGuide/EducationGuide/EducationGuide/Pages/Home/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-9sajjhp9gy
 
-[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Tutors/Tutors.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JzXFR1dG9ycy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-aj9uvyae4b
+[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Our Vision/OurVision.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3VyIFZpc2lvblxPdXJWaXNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zh9ntfld50
+
+[E:/EducationGuide/EducationGuide/EducationGuide/Pages/Tutors/TutorsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JzXFR1dG9yc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0qtwq75b15
 
 [E:/EducationGuide/EducationGuide/EducationGuide/Shared/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3Rlci5yYXpvcg==

@@ -1,44 +1,50 @@
-
-.header[b-9sajjhp9gy] {
+﻿
+.Header[b-9sajjhp9gy] {
     position: relative;
 }
 
-    .header .ImgHP[b-9sajjhp9gy] {
-        padding-top: 50%;
-        background-image: url('images/Home/HomepageBackground.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        filter: brightness(80%);
-        background-position: 50% 50%;
-    }
+.Header .Image[b-9sajjhp9gy] {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: brightness(80%);
+    background-position: 50% 50%;
+}
 
-    .header .Text[b-9sajjhp9gy] {
-        position: absolute;
-        bottom: 25px;
-        color: white;
-        text-align: center;
-        transform: translate(-50%);
-        left: 50%
-    }
+.Header .Text[b-9sajjhp9gy] {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    text-align: center;
+    transform: translate(-50%);
+    left: 50%
+}
 
-    .header .Title[b-9sajjhp9gy] {
-        font-weight: bold;
-        margin-bottom: 10px;
-        font-weight: 650;
-    }
+
+.Header .Title[b-9sajjhp9gy] {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-weight: 650;
+}
+
+.Header .Button[b-9sajjhp9gy] {
+    display: none;
+}
 
 .Intro[b-9sajjhp9gy] {
-    padding: 75px 0;
-    display: grid;
+    padding-top: 75px;
     grid-template-rows: auto auto;
     grid-template-columns: 60% 40%;
-    grid-template-areas:
-        "Title Content"
-        "Button Content";
     padding-left: 3%;
     padding-right: 3%;
 }
+
+    .Intro .Text[b-9sajjhp9gy] {
+        display: grid;
+        grid-template-areas:
+            "Title Content"
+            "Button Content";
+    }
 
     .Intro .Title[b-9sajjhp9gy] {
         -webkit-text-size-adjust: 100%;
@@ -78,6 +84,7 @@
     }
 
     .Intro .Content[b-9sajjhp9gy] {
+        grid-area: Content;
         -webkit-text-size-adjust: 100%;
         list-style: none;
         word-wrap: break-word;
@@ -90,91 +97,89 @@
         padding: 10px 12px;
     }
 
-.About[b-9sajjhp9gy] {
+ /*About1*/
+.About1[b-9sajjhp9gy] {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        "Image Text"
+        "Image Text"
+        "Image Text";
+    margin-top: 75px;
+    padding: 25px 3% 0 3%;
+    background-color: rgb(62, 61, 61);
+}
+    .About1 .Text[b-9sajjhp9gy] {
+        grid-area: Text;
+        align-self: center;
+    }
+    .About1 .Title[b-9sajjhp9gy] {
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        font-weight: bold;
+        text-align: left;
+        font-size: 48px;
+        line-height: 1.4;
+        color: #ffffff;
+        padding-left: 5%;
+    }
+
+    .About1 .Content[b-9sajjhp9gy] {
+        align-items: center;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        word-wrap: break-word;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 1.5;
+        color: #fff;
+        padding-left: 5%;
+    }
+
+    .About1 .Button[b-9sajjhp9gy] {
+        margin-left: 5%;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        font-size: 20px;
+        padding: 16px 28px;
+        font-family: roboto, helvetica, sans-serif;
+        background: #a3826c;
+        color: #fff;
+        font-weight: 400;
+        border-radius: 4px;
+        transition: all 0.15s;
+        list-style: none;
+        font-style: normal;
+    }
+
+    .About1 .Image[b-9sajjhp9gy] {
+        grid-area: Image;
+        width: 100%;
+        height: 100%;
+        padding-right: 2%;
+    }
+
+/*About2*/
+
+.About2[b-9sajjhp9gy] {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        "Text Image"
+        "Text Image"
+        "Text Image";
     padding: 75px 3%;
     background-color: rgb(62, 61, 61);
 }
-
-    .About .About1[b-9sajjhp9gy] {
-        display: grid;
-        padding: 2%;
-        grid-template-columns: 50% 50%;
-        grid-template-areas:
-            "Image Title"
-            "Image Content"
-            "Image Button";
+    .About2 .Text[b-9sajjhp9gy] {
+        grid-area: Text;
+        align-self: center;
     }
-
-.About1 .Title[b-9sajjhp9gy] {
-    -webkit-text-size-adjust: 100%;
-    list-style: none;
-    font-weight: bold;
-    text-align: left;
-    font-size: 48px;
-    line-height: 1.4;
-    color: #ffffff;
-    padding-left: 5%;
-}
-
-.About1 .Content[b-9sajjhp9gy] {
-    align-items: center;
-    grid-area: Content;
-    -webkit-text-size-adjust: 100%;
-    list-style: none;
-    word-wrap: break-word;
-    font-style: normal;
-    font-family: inherit;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 1.5;
-    color: #fff;
-    padding-left: 5%;
-}
-
-.About1 .Button[b-9sajjhp9gy] {
-    grid-area: Button;
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    box-shadow: none;
-    font-size: 20px;
-    padding: 16px 28px;
-    font-family: roboto, helvetica, sans-serif;
-    place-self: start;
-    background: #a3826c;
-    color: #fff;
-    margin: unset;
-    font-weight: 400;
-    border-radius: 4px;
-    transition: all 0.15s;
-    list-style: none;
-    font-style: normal;
-}
-
-.About1 .Image[b-9sajjhp9gy] {
-    grid-area: Image;
-    width: 100%;
-    height: 100%;
-    padding-right: 2%;
-}
-
-/*About2*/
-.About[b-9sajjhp9gy] {
-    padding: 115px 3%;
-    background-color: rgb(62, 61, 61);
-}
-
-    .About .About2[b-9sajjhp9gy] {
-        padding: 2%;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-areas:
-            "Title Image"
-            "Content Image"
-            "Button Image";
-    }
-
 .About2 .Title[b-9sajjhp9gy] {
     -webkit-text-size-adjust: 100%;
     list-style: none;
@@ -188,7 +193,6 @@
 
 .About2 .Content[b-9sajjhp9gy] {
     align-items: center;
-    grid-area: Content;
     -webkit-text-size-adjust: 100%;
     list-style: none;
     word-wrap: break-word;
@@ -201,26 +205,22 @@
     padding-right: 5%;
 }
 
-.About2 .Button[b-9sajjhp9gy] {
-    grid-area: Button;
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    box-shadow: none;
-    font-size: 20px;
-    padding: 16px 28px;
-    font-family: roboto, helvetica, sans-serif;
-    place-self: start;
-    background: #a3826c;
-    color: #fff;
-    margin: unset;
-    font-weight: 400;
-    border-radius: 4px;
-    transition: all 0.15s;
-    list-style: none;
-    font-style: normal;
-}
+    .About2 .Button[b-9sajjhp9gy] {
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        font-size: 20px;
+        padding: 16px 28px;
+        font-family: roboto, helvetica, sans-serif;
+        background: #a3826c;
+        color: #fff;
+        font-weight: 400;
+        border-radius: 4px;
+        transition: all 0.15s;
+        list-style: none;
+        font-style: normal;
+    }
 
 .About2 .Image[b-9sajjhp9gy] {
     grid-area: Image;
@@ -230,91 +230,117 @@
 }
 
 /*About 3*/
-.About[b-9sajjhp9gy] {
-    padding: 115px 3%;
+.About3[b-9sajjhp9gy] {
+    display: grid;
+    padding: 2%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        "Image Text"
+        "Image Text"
+        "Image Text";
+    padding: 0 3% 75px 3%;
     background-color: rgb(62, 61, 61);
 }
-
-    .About .About3[b-9sajjhp9gy] {
-        padding: 2%;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-areas:
-            "Image Title"
-            "Image Content"
-            "Image Button";
+    .About3 .Text[b-9sajjhp9gy] {
+        grid-area: Text;
+        align-self: center;
+    }
+    .About3 .Title[b-9sajjhp9gy] {
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        font-weight: bold;
+        text-align: left;
+        font-size: 48px;
+        line-height: 1.4;
+        color: #ffffff;
+        padding-left: 5%;
     }
 
-.About3 .Title[b-9sajjhp9gy] {
-    -webkit-text-size-adjust: 100%;
-    list-style: none;
-    font-weight: bold;
-    text-align: left;
-    font-size: 48px;
-    line-height: 1.4;
-    color: #ffffff;
-    padding-left: 5%;
-}
+    .About3 .Content[b-9sajjhp9gy] {
+        align-items: center;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        word-wrap: break-word;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 1.5;
+        color: #fff;
+        padding-left: 5%;
+    }
 
-.About3 .Content[b-9sajjhp9gy] {
-    align-items: center;
-    grid-area: Content;
-    -webkit-text-size-adjust: 100%;
-    list-style: none;
-    word-wrap: break-word;
-    font-style: normal;
-    font-family: inherit;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 1.5;
-    color: #fff;
-    padding-left: 5%;
-}
+    .About3 .Button[b-9sajjhp9gy] {
+        margin-left: 5%;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        font-size: 20px;
+        padding: 16px 28px;
+        font-family: roboto, helvetica, sans-serif;
+        background: #a3826c;
+        color: #fff;
+        font-weight: 400;
+        border-radius: 4px;
+        transition: all 0.15s;
+        list-style: none;
+        font-style: normal;
+    }
 
-.About3 .Button[b-9sajjhp9gy] {
-    grid-area: Button;
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    box-shadow: none;
-    font-size: 20px;
-    padding: 16px 28px;
-    font-family: roboto, helvetica, sans-serif;
-    place-self: start;
-    background: #a3826c;
-    color: #fff;
-    margin: unset;
-    font-weight: 400;
-    border-radius: 4px;
-    transition: all 0.15s;
-    list-style: none;
-    font-style: normal;
-}
+    .About3 .Image[b-9sajjhp9gy] {
+        grid-area: Image;
+        width: 100%;
+        height: 100%;
+        padding-right: 2%;
+    }
 
-.About3 .Image[b-9sajjhp9gy] {
-    grid-area: Image;
-    width: 100%;
-    height: 100%;
-    padding-right: 2%;
-}
 
 .Slogan[b-9sajjhp9gy] {
     background-color: rgb(163, 130, 108);
+    padding: 75px 5%;
 }
-
+    .Slogan .Title[b-9sajjhp9gy] {
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: inherit;
+        text-align: start;
+        font-size: 48px;
+        line-height: 1.4;
+        color: #ffffff;
+    }
     .Slogan .Content[b-9sajjhp9gy] {
-        color: #fff;
-        font-weight: bold;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: #ececec;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-style: normal;
+        font-family: inherit;
+        line-height: 1.45;
+        font-weight: 400;
+        text-align: start;
+        font-size: 20px;
     }
 
     .Slogan .SubContent[b-9sajjhp9gy] {
         color: #fff;
     }
+    .Slogan .Button[b-9sajjhp9gy]{
+        display:none;
+    }
 
 .Contact[b-9sajjhp9gy] {
     padding: 75px 5%;
 }
+
 
     .Contact .TitleGroup[b-9sajjhp9gy] {
         text-align: center;
@@ -330,11 +356,49 @@
         .Contact .Content .ContactForm[b-9sajjhp9gy] {
             display: grid;
             grid-area: Form;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas:
+                "Name"
+                "Email"
+                "Message"
+                "Button"
         }
-        .Contact .Content .Contact-col[b-9sajjhp9gy]{
-            grid-area:Info;
-            
+
+        .Contact .Content .Contact-col[b-9sajjhp9gy] {
+            grid-area: Info;
+            justify-self: center;
         }
 
+        .Contact .Content .Location[b-9sajjhp9gy] {
+            text-align: center;
+            border: none;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
 
+.ContactForm .Name[b-9sajjhp9gy] {
+    grid-area: Name;
+}
 
+.ContactForm .Button[b-9sajjhp9gy] {
+    grid-area: Button;
+    zoom: 1;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 16px 28px;
+    font-family: roboto, helvetica, sans-serif;
+    place-self: start;
+    background: #a3826c;
+    color: #fff;
+    margin: unset;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.15s;
+    list-style: none;
+    font-style: normal;
+}

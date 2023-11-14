@@ -13,8 +13,6 @@ namespace Infrastructure.Data.Config
 			builder.ToTable(nameof(Page));
 			builder.HasKey(p => p.Id);
 
-			builder.Property(p => p.Title).IsRequired().HasMaxLength(255);
-			builder.Property(p => p.Description).HasMaxLength(2000);
 			builder.Property(p => p.Url).IsRequired().HasMaxLength(255);
 
 			builder.HasMany(p => p.Sections).WithOne(p => p.Page).HasForeignKey(p => p.PageId);

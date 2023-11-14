@@ -1,0 +1,82 @@
+﻿@page "/contact"
+@using Core.Models.Domain;
+@using Core.Models.Repository;
+@inject IContactRepository _contactRepository
+@inject ICompanyInfoRepository _companyInfoRepository
+
+
+<div class = "contact">
+
+<div class = "container">
+	<h1>Contact With Us</h1>
+	<p>We would to love your queries and have you succeed. Feel free to get in touch with us</p>
+</div>
+<div class = "contact-box">
+	<div class = "contact-left">
+		<h3>Sent your request</h3>
+		
+		
+	<div class = "ContactForm">
+		<input @bind-value = "_newContact.Name" class = "Name" type = "Name" placeholder = "Name" style = "border: 1px;
+		padding: 11px 10px;
+		border-style:groove;"/>
+
+		<input @bind-value = "_newContact.Email" class = "Email" type = "Email" placeholder = "Email" style = "border: 1px; padding: 11px 10px;
+		border-style:groove"/>
+
+		<input @bind-value = "_newContact.Message" class = "Message" type = "Message" placeholder = "Message" style = "border: 1px;
+		padding: 11px 10px;
+		border-style:groove;" />
+		<button class = "Button"  @onclick="() => Submitform()" type = "Submit" >Submit</button>	
+				@if (saved)
+				{
+
+				}
+	</div>
+
+
+	</div>
+	
+	<div class = "contact-right">
+		<h3>Reach Us</h3>
+		<div class = "info" style = "font-size: larger ">
+
+				<p>Phone: @_companyInfo.Phone</p>
+
+				<p>Email: @_companyInfo.Email</p>
+
+				<p>Adress: @_companyInfo.Adress</p>
+
+		</div>
+	</div>
+
+</div>
+</div>
+@code {
+
+	private CompanyInfo _companyInfo = new CompanyInfo();
+
+	private Core.Models.Domain.Contact _newContact = new Core.Models.Domain.Contact();
+	protected override async Task OnParametersSetAsync()
+	{
+		_companyInfo = await _companyInfoRepository.GetCompanyAsync(1);
+
+		await base.OnInitializedAsync();
+	}
+	public bool saved = false;
+
+	private async Task Submitform()
+	{
+		try
+		{
+			await _contactRepository.CreateContactAsync(_newContact);
+			_newContact = new Core.Models.Domain.Contact();
+			saved = true;
+		}
+		catch
+		{
+
+		}
+
+	}
+}

@@ -57,7 +57,7 @@ namespace Infrastructure.Data
 
 		public async Task<Tutors> GetTutorsAsync(int id)
 		{
-			var tutor = await pageContext.Tutors.Include("CourseTutors").Include("Course").FirstOrDefaultAsync(x => x.Id == id);
+			var tutor = await pageContext.Tutors.Include(t => t.CourseTutors).ThenInclude(ct => ct.Course).FirstOrDefaultAsync(x => x.Id == id);
 			if(tutor == null)
 			{
 				return null;

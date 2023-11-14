@@ -1,25 +1,26 @@
-﻿<div class = "navbar" style="background: transparent;">
+﻿@using Core.Models.Domain;
+@using Core.Models.Repository;
+
+<div class = "navbar">
 
 	   <h2>
 
-		   <a  class = " name" href="/home">Education Guide</a>
+		   <a  class = " name" href="/">Education Guide</a>
 	   </h2>
 
    <RadzenMenu Click="OnParentClicked" style = "justify-content: right;">
-			<RadzenMenuItem  Text="Home">
+			<RadzenMenuItem  Text="Home" Path="/">
 
 			</RadzenMenuItem>
 
 			<RadzenMenuItem Text="Learn" >
 				<RadzenMenuItem Text="Tutors" Path="tutors"></RadzenMenuItem>
-				<RadzenMenuItem Text="Support Client" Path="textbox"></RadzenMenuItem>
-				<RadzenMenuItem Text="Contact" Path="textarea" ></RadzenMenuItem>
+				<RadzenMenuItem Text="Support Client" Path="contact"></RadzenMenuItem>
+				<RadzenMenuItem Text="Contact" Path="contact" ></RadzenMenuItem>
 			</RadzenMenuItem>
-
-			<RadzenMenuItem Text="Our Vision">
-
+			<RadzenMenuItem Text="Our Vision" Path="ourvision">
 			</RadzenMenuItem>
-
+			<RadzenMenuItem Text="About Us" Path = "aboutus"></RadzenMenuItem>
 	</RadzenMenu>
 </div>
 
@@ -34,5 +35,6 @@
 
 	void OnChildClicked(MenuItemEventArgs args)
 	{
+
 	}
 }
