@@ -1,0 +1,163 @@
+@using AutoMapper;
+@using Core.Models.Domain;
+@using Core.Models.Repository;
+@using EducationGuide.Admin.Authentication;
+@using System.Security.Claims;
+@page "/edit-section"
+
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject DialogService DialogService
+@inject TooltipService TooltipService
+@inject ContextMenuService ContextMenuService
+@inject NotificationService NotificationService
+@inject ISectionRepository _sectionRepository
+@inject IPageRepository _pageRepository
+@inject IMapper _mapper;
+@inject EducationGuideAuthenticationStateProvider EducationGuideAuthenticationStateProvider
+@using EducationGuide.Admin.Data;
+@using Microsoft.AspNetCore.Components.Forms;
+@inject IConfiguration config
+@inject ImageUploadService imageUploadService
+
+<PageTitle>Edit Section</PageTitle>
+
+
+    <RadzenColumn SizeMD=12>
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">Cannot save Section</RadzenAlert>
+        <RadzenTemplateForm TItem="Section" Data="@_section" Visible="@(_section != null)" Submit="@FormSubmit">
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Title" Component="Title" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@_section.Title" Name="Title" />
+                    <RadzenRequiredValidator Component="Title" Text="Title is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Content" Component="Content" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@_section.Content" Name="Content" />
+                    <RadzenRequiredValidator Component="Content" Text="Content is required" />
+                </RadzenColumn>
+            </RadzenRow>
+        @if (!string.IsNullOrEmpty(_section.ImageUrl))
+        {
+
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Image Url" Component="ImageUrl" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+
+                    <InputFile OnChange = "@LoadImageFile" inputfile accept = ".png,.jpg,.jpeg"></InputFile>
+
+                </RadzenColumn>
+            </RadzenRow>
+        }
+
+        @if (!string.IsNullOrEmpty(_section.BackgroundUrl))
+        {
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Background Url" Component="BackgroundUrl" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                   <InputFile OnChange = "@LoadBackgroundFile" inputfile accept = ".png,.jpg,.jpeg"></InputFile>
+                </RadzenColumn>
+            </RadzenRow>
+        
+        }
+       @if (!string.IsNullOrEmpty(_section.ButtonUrl))
+        {
+                <RadzenDropDown TValue="string" Value=@ButtonCurrent() Data=_buttonName Change="@(args => value = $"{DataChange(args)}")" Style="width: 100%; max-width: 400px;" >
+            </RadzenDropDown>
+        }
+            <RadzenStack  Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save" Variant="Variant.Flat" />
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+            </RadzenStack>
+            </RadzenTemplateForm>
+            </RadzenColumn>
+
+
+@code {
+
+    private IBrowserFile? imageFile;
+    private IBrowserFile? backgroundFile;
+
+
+    private void LoadImageFile(InputFileChangeEventArgs e)
+    {
+        imageFile = e.File;
+    }
+
+    private void LoadBackgroundFile(InputFileChangeEventArgs e)
+    {
+        backgroundFile = e.File;
+    }
+
+
+
+
+
+    [Parameter]
+    public int Id { get; set; }
+    protected Page _page = new Page();
+    protected string userRole;
+    private string value;
+    protected override async Task OnInitializedAsync()
+    {
+        _page = await _pageRepository.GetByUrlAsync("/");
+        _section = await _sectionRepository.GetSectionAsync(_page.Id, Id);
+        _buttonName = await _pageRepository.GetAllNamePageAsync();
+        var authState = await EducationGuideAuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            // Get the user's role
+            userRole = user.FindFirst(ClaimTypes.Role)?.Value;
+        }
+    }
+
+
+    protected bool errorVisible;
+    protected Section _section;
+    IEnumerable<string> _buttonName;
+    protected async Task FormSubmit()
+    {
+        try
+        {
+            _section.ImageUrl = await imageUploadService.CaptureFileImg(imageFile, _section, "Home");
+            _section.BackgroundUrl = await imageUploadService.CaptureFileBgr(backgroundFile,_section,"Home");
+            await _sectionRepository.UpdateAsync(_section, Id, _page.Id, userRole);
+            DialogService.Close(_section);
+        }
+        catch (Exception ex)
+        {
+            errorVisible = true;
+
+        }
+    }
+
+
+    private string ButtonCurrent()
+    {
+        var page = _pageRepository.GetPageByUrl(_section.ButtonUrl);
+        return page?.NamePage;
+    }
+    private string DataChange(object namePageObject)
+    {
+        string namePageString = namePageObject.ToString();
+        var name = _pageRepository.GetPageByName(namePageString);
+        _section.ButtonUrl = name.Url;
+        return _section.ButtonUrl;
+    }
+    protected async Task CancelButtonClick(MouseEventArgs args)
+    {
+        DialogService.Close(null);
+    }
+}

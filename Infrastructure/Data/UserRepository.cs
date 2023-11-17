@@ -53,6 +53,7 @@ namespace Infrastructure.Data
         }
 
 
+
         public async Task<Users> GetUserAsync(int Id)
         {
             var user = await _pageContext.Users.FirstOrDefaultAsync(x => x.Id == Id);

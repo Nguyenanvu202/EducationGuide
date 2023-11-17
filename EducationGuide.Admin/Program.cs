@@ -18,15 +18,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddTransient<ImageUploadService>();
+builder.Services.AddTransient<ImageUploadTutorService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 builder.Services.AddScoped<TooltipService>();
 builder.Services.AddScoped<ContextMenuService>();
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<NotificationService>();
+
+builder.Services.AddTransient<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IUserRepositoty, UserRepository>();
 builder.Services.AddTransient<ISectionRepository, SectionRepository>();
 builder.Services.AddTransient<IPageRepository, PageRepository>();
+builder.Services.AddTransient<ITutorRepository, TutorRepository>();
+builder.Services.AddTransient<ICompanyInfoRepository, CompanyInfoRepository>();
+builder.Services.AddTransient<ICourseRepository, CourseRepository>();
+builder.Services.AddTransient<IContactRepository, ContactRepository>();
+
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<EducationGuideAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(sp

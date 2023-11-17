@@ -45,7 +45,7 @@ namespace Infrastructure.Data
 		{
 			try
 			{
-				var tutor = await pageContext.Tutors.Include("CourseTutors").ToListAsync();
+				var tutor = await pageContext.Tutors.Include("Course").ToListAsync();
 				return tutor;
 			}
 			catch (Exception ex)
@@ -55,9 +55,10 @@ namespace Infrastructure.Data
 			
 		}
 
-		public async Task<Tutors> GetTutorsAsync(int id)
+
+        public async Task<Tutors> GetTutorsAsync(int id)
 		{
-			var tutor = await pageContext.Tutors.Include(t => t.CourseTutors).ThenInclude(ct => ct.Course).FirstOrDefaultAsync(x => x.Id == id);
+			var tutor = await pageContext.Tutors.Include("Course").FirstOrDefaultAsync(x => x.Id == id);
 			if(tutor == null)
 			{
 				return null;
@@ -65,22 +66,26 @@ namespace Infrastructure.Data
 			return tutor;
 		}
 
-		public async Task<Tutors> UpdateAsync(int id, Tutors tutors)
+		public async Task<Tutors> UpdateAsync(int id, Tutors tutors,string userRole)
 		{
 			var existTutor = await pageContext.Tutors.FirstOrDefaultAsync(x => x.Id == id);
 			if(existTutor == null)
 			{
 				return null;
 			}
+			userRole = existTutor.UpdatedBy;
+			tutors.UpdatedDate = DateTime.Now;
 
-			existTutor.Name = tutors.Name;
-			existTutor.FacebookUrl = tutors.FacebookUrl;
-			existTutor.ImgUrl = tutors.ImgUrl;
-			existTutor.Description = tutors.Description;
-			existTutor.Email = tutors.Email;
-			existTutor.Phone = tutors.Phone;
-
-			return existTutor;
+			tutors.Name = existTutor.Name;
+			tutors.FacebookUrl = existTutor.FacebookUrl;
+            tutors.ImgUrl = existTutor.ImgUrl;
+			tutors.Description = existTutor.Description;
+			tutors.Email = existTutor.Email;
+			tutors.Phone = existTutor.Phone;
+			tutors.Gender = existTutor.Gender;
+			tutors.CourseId = existTutor.CourseId;
+			await pageContext.SaveChangesAsync();
+			return tutors;
 		}
 	}
 }

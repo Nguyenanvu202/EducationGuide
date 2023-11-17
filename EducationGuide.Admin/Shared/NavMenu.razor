@@ -1,5 +1,6 @@
 ﻿@using EducationGuide.Admin.Authentication;
 @inject EducationGuideAuthenticationStateProvider _authenticationStateProvider
+<AuthorizeView>
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Admin</a>
@@ -18,7 +19,7 @@
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="edit-homepage">
+            <NavLink class="nav-link" href="tutors">
                 <span class="oi oi-plus" aria-hidden="true"></span> Tutor
             </NavLink>
         </div>
@@ -33,20 +34,26 @@
             <NavLink class="nav-link" href="ourteam">
                 <span class="oi oi-list-rich" aria-hidden="true"></span>Our Team
             </NavLink>
-        </div>
+        </div>      
         
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="contact">
-                <span class="oi oi-list-rich" aria-hidden="true"></span>Contact
+            <NavLink class="nav-link" href="company-infos">
+                <span class="oi oi-list-rich" aria-hidden="true"></span>Company Info
+            </NavLink>
+        </div>        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="course">
+                <span class="oi oi-list-rich" aria-hidden="true"></span>Course
             </NavLink>
         </div>
+        
         <div class="nav-item px-3">
             <RadzenButton Click=@(args => OnLogout()) Text="Log Out" ButtonStyle="ButtonStyle.Info" />
         </div>
     </nav>
 
 </div>
-
+</AuthorizeView>
 
 @code {
     private bool collapseNavMenu = true;

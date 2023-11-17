@@ -42,7 +42,12 @@ namespace Infrastructure.Data
 			return pageExist;
 		}
 
-		public async Task<List<Page>> GetAllPagesAsync()
+        public async Task<List<string>> GetAllNamePageAsync()
+        {
+            return await pageContext.Pages.Select(n => n.NamePage).Distinct().ToListAsync();
+        }
+
+        public async Task<List<Page>> GetAllPagesAsync()
 		{
 			try
 			{
@@ -56,12 +61,34 @@ namespace Infrastructure.Data
 			
 		}
 
-		public async Task<Page> GetByUrlAsync(string url)
+
+
+        public async Task<List<string>> GetAllUrlAsync()
+        {
+            
+            return await pageContext.Pages.Select(p => p.Url).Distinct().ToListAsync();
+        }
+
+        public Page GetPageByUrl(string url)
+        {
+            return pageContext.Pages.Include("Sections").FirstOrDefault(p => p.Url == url);
+
+        }        
+		
+		public Page GetPageByName(string name)
+        {
+            return pageContext.Pages.Include("Sections").FirstOrDefault(p => p.NamePage == name);
+
+        }
+
+        public async Task<Page> GetByUrlAsync(string url)
 		{
 			return await pageContext.Pages.Include("Sections").FirstOrDefaultAsync(p => p.Url == url);
 		}
 
-		public async Task<Page> GetPagesAsync(int id)
+
+
+        public async Task<Page> GetPagesAsync(int id)
 		{
 			var page = await pageContext.Pages.Include("Sections").FirstOrDefaultAsync(x => x.Id == id);
 			if(page == null)

@@ -13,9 +13,10 @@ namespace Core.Models.Repository
 
 		Task<Tutors>GetTutorsAsync(int id);
 
+
 		Task<Tutors>CreateTutorsAsync(Tutors tutor);
 
-		Task<Tutors>UpdateAsync(int id, Tutors tutors);
+		Task<Tutors>UpdateAsync(int id, Tutors tutors, string userRole);
 
 		Task<Tutors>DeleteAsync(int id);
 	}

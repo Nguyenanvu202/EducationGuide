@@ -19,5 +19,6 @@ namespace Core.Models.Repository
 		Task<Section> UpdateAsync(Section section,int Id , int pageId, string userRole);
 
 		Task<Section> DeleteAsync(int Id, int pageId);
+
 	}
 }

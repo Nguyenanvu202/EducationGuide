@@ -1,0 +1,147 @@
+﻿@page "/tutors"
+@using Core.Models.Domain;
+@using Core.Models.Repository;
+@inject ITutorRepository _tutorRepository
+@inject ICourseRepository _courseRepository
+@inject IConfiguration config
+
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject DialogService DialogService
+@inject TooltipService TooltipService
+@inject ContextMenuService ContextMenuService
+@inject NotificationService NotificationService
+<AuthorizeView>
+<Authorized>
+
+<PageTitle>Tutors</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="Tutors" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenButton Icon="add_circle_outline" Text="Add" Click="@AddButtonClick" Variant="Variant.Flat" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="800px"  AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@_tutors" TItem="Tutors" RowSelect="@EditRow">
+
+            <Columns>
+
+                  <RadzenDataGridColumn TItem="Tutors" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
+                  <Template Context="Tutors">
+                  <RadzenImage Path="@CreateWebPath(Tutors.ImgUrl)" class="rz-gravatar" style="width: 120px; height: 120px; border-radius: 50%;" />
+                  </Template>
+                  </RadzenDataGridColumn>
+
+                <RadzenDataGridColumn TItem="Tutors" Property="Name" Title="Name" Frozen="true" Width="150px" />
+                <RadzenDataGridColumn TItem="Tutors" Property="Phone" Title="Phone" Width="200px" />
+
+                <RadzenDataGridColumn TItem="Tutors" Title="Subject" Width="120px">
+                    <Template Context="tutor">
+                    @DisplaySubject(tutor.CourseId)
+                    </Template>
+                </RadzenDataGridColumn>
+
+                <RadzenDataGridColumn TItem="Tutors" Property="FacebookUrl" Title="Facebook" Width="120px" />
+                <RadzenDataGridColumn TItem="Tutors" Property="Email" Title="Email" FormatString="{0:d}" Width="160px" />
+                <RadzenDataGridColumn TItem="Tutors" Title="Gender" FormatString="{0:d}" Width="160px">
+                <Template Context="tutor">
+                            @if(tutor.Gender == 0)
+                            {
+                                <text>Male</text>
+                            }
+                            else
+                            {
+                                <text>Female</text>
+                            }
+                        </Template>
+                </RadzenDataGridColumn>
+
+                <RadzenDataGridColumn TItem="Tutors" Property="CreatedDate" Title="CreatedDate" Width="200px" />
+                <RadzenDataGridColumn TItem="Tutors" Property="CreatedBy" Title="CreatedBy" Width="160px" />
+                <RadzenDataGridColumn TItem="Tutors" Property="UpdatedDate" Title="UpdatedDate" Width="160px" />
+                <RadzenDataGridColumn TItem="Tutors" Property="UpdatedBy" Title="UpdatedBy" Width="160px" />
+   
+              <RadzenDataGridColumn TItem="Tutors" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <Template Context="tutor">
+
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Medium"
+                    Shade="Shade.Lighter" Variant="Variant.Flat"
+                    Click=@(args => GridDeleteButtonClick(args, tutor)) @onclick:stopPropagation="true" />
+                </Template>
+             </RadzenDataGridColumn>
+
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>
+</Authorized>
+<NotAuthorized>You are not authorized</NotAuthorized>
+
+</AuthorizeView>
+@code{
+    protected List<Tutors> _tutors;
+    private Tutors _tutorCourse = new Tutors();
+    protected RadzenDataGrid<Tutors> grid0;
+    protected override async Task OnInitializedAsync()
+    {
+        _tutors = await _tutorRepository.GetAllTutorsAsync(); 
+    }
+
+    protected async Task AddButtonClick(MouseEventArgs args)
+    {
+        await DialogService.OpenAsync<AddTutor>("Add Tutor", null);
+        await grid0.Reload();
+    }
+
+    protected async Task EditRow(Tutors args)
+    {
+        await DialogService.OpenAsync<EditTutor>("Edit Tutor", new Dictionary<string, object> { { "Id", args.Id } });
+    }
+
+    protected async Task GridDeleteButtonClick(MouseEventArgs args, Tutors tutor)
+    {
+        try
+        {
+            if (await DialogService.Confirm("Are you sure you want to delete this record?") == true)
+            {
+                var deleteResult = await _tutorRepository.DeleteAsync(tutor.Id);
+
+                if (deleteResult != null)
+                {
+                    await grid0.Reload();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            NotificationService.Notify(new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Error,
+                    Summary = $"Error",
+                    Detail = $"Unable to delete Tutor"
+                });
+        }
+    }
+
+    protected  string DisplaySubject(int Id)
+    {
+        var subject = _courseRepository.GetCourse(Id);
+        return subject.Subject;
+    }
+    private string CreateWebPath(string relativePath)
+    {
+        return Path.Combine(config.GetValue<string>("WebStorageRoot")!, relativePath);
+    }
+}

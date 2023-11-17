@@ -27,7 +27,6 @@ namespace Infrastructure.Data
 
         public DbSet<Tutors> Tutors { get; set; }
 		public DbSet<Course> Courses { get; set; }
-		public DbSet<CourseTutor> CourseTutors { get; set; }
 
         public DbSet<Users> Users { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

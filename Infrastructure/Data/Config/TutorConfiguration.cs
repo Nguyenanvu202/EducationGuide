@@ -19,7 +19,6 @@ namespace Infrastructure.Data.Config
 			builder.Property(p => p.Email).IsRequired();
 			builder.Property(p => p.Description).IsRequired();
 
-			builder.HasMany(p => p.CourseTutors).WithOne(p => p.Tutors).HasForeignKey(p => p.TutorId);
 
 			builder.Property(p => p.CreatedBy).IsRequired().HasMaxLength(255);
 			builder.Property(p => p.CreatedDate).IsRequired();

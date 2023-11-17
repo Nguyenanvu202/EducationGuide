@@ -10,6 +10,6 @@ namespace Core.Models.Domain
 	{
         public string Subject { get; set; }
 
-		public virtual ICollection<CourseTutor> CourseTutors { get; set; }
+		public virtual ICollection<Tutors> Tutors { get; set; }
     }
 }

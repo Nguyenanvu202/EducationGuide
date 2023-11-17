@@ -15,8 +15,14 @@ namespace Core.Models.Repository
 
 		Task<Course> CreateCourseAsync(Course tutor);
 
-		Task<Course> UpdateAsync(int id, Course tutors);
+		Task<Course> UpdateAsync(int id, Course tutors, string userRole);
 
 		Task<Course> DeleteAsync(int id);
-	}
+
+		Task<List<string>> GetAllCourseNameAsync();
+
+        Course GetCourse(int id);
+
+		Task<int> GetIdByNameAsync(string name);
+    }
 }

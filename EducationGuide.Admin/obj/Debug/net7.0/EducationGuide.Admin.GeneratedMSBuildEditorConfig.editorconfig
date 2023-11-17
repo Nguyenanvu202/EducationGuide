@@ -20,36 +20,88 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/Contact.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxDb250YWN0LnJhem9y
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/CompanyInfo/CompanyInfos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGFueUluZm9cQ29tcGFueUluZm9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/EditHome.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxFZGl0SG9tZS5yYXpvcg==
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/CompanyInfo/EditCompanyInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGFueUluZm9cRWRpdENvbXBhbnlJbmZvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/EditSection.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxFZGl0U2VjdGlvbi5yYXpvcg==
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Contact/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFxDb250YWN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxIb21lLnJhem9y
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Courses/AddCourse.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xBZGRDb3Vyc2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/OurTeam.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxPdXJUZWFtLnJhem9y
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Courses/Course.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xDb3Vyc2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Edit/OurVision.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFxPdXJWaXNpb24ucmF6b3I=
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Courses/EditCourse.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xFZGl0Q291cnNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Home/EditSection.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxFZGl0U2VjdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Home/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/ImageUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW1hZ2VVcGxvYWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/OurTeam/EditSection.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3VyVGVhbVxFZGl0U2VjdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/OurTeam/OurTeam.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3VyVGVhbVxPdXJUZWFtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/OurVision/EditSection.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3VyVmlzaW9uXEVkaXRTZWN0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/OurVision/OurVision.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3VyVmlzaW9uXE91clZpc2lvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Tutor/AddTutor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JcQWRkVHV0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Tutor/EditTutor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JcRWRpdFR1dG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/Tutor/Tutor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHV0b3JcVHV0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/User/AddUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxBZGRVc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/User/EditUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxFZGl0VXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EducationGuide/EducationGuide/EducationGuide.Admin/Pages/User/User.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/EducationGuide/EducationGuide/EducationGuide.Admin/Shared/Login.razor]

@@ -17,6 +17,7 @@ namespace Core.Models.Domain
         public string Description { get; set; }
         public int Gender { get; set; }
 
-        public virtual ICollection<CourseTutor> CourseTutors { get; set; }
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

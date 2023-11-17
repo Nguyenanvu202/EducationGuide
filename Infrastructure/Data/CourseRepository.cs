@@ -1,32 +1,27 @@
-﻿/*using Core.Models.Domain;
+﻿using Core.Models.Domain;
 using Core.Models.Repository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-	public class CourseRepository : ICourseRepository
+    public class CourseRepository : ICourseRepository
 	{
 		private readonly PageContext pageContext;
 
 		public CourseRepository(PageContext pageContext)
-        {
+		{
 			this.pageContext = pageContext;
 		}
 
 
-        public async Task<Course> CreateCourseAsync(Course course)
+		public async Task<Course> CreateCourseAsync(Course course)
 		{
 			await pageContext.Courses.AddAsync(course);
 
 			pageContext.SaveChanges();
 
 			return course;
-			
+
 		}
 
 		public async Task<Course> DeleteAsync(int id)
@@ -41,47 +36,66 @@ namespace Infrastructure.Data
 			return courseExist;
 		}
 
-		public async Task<List<Course>> GetAllTutorsAsync()
+        public async Task<List<string>> GetAllCourseNameAsync()
+        {
+            return await pageContext.Courses.Select(c => c.Subject).Distinct().ToListAsync();
+        }
+
+        public async Task<List<Course>> GetAllCourseAsync()
 		{
 			try
 			{
-				var course = await pageContext.Courses.Include("CourseTutors").ToListAsync();
+				var course = await pageContext.Courses.ToListAsync();
 				return course;
 			}
 			catch (Exception ex)
 			{
 				throw ex;
 			}
-			
+
 		}
 
-		public async Task<Course> GetTutorsAsync(int id)
+		public async Task<Course> GetCourseAsync(int id)
 		{
-			var tutor = await pageContext.Tutors.Include("CourseTutors").Include("Course").FirstOrDefaultAsync(x => x.Id == id);
-			if(tutor == null)
+			var course = await pageContext.Courses.FirstOrDefaultAsync(x => x.Id == id);
+			if (course == null)
 			{
 				return null;
 			}
-			return tutor;
+			return course;
 		}
 
-		public async Task<Course> UpdateAsync(int id, Course tutors)
+		public async Task<Course> UpdateAsync(int id, Course course,string userRole)
 		{
-			var existTutor = await pageContext.Tutors.FirstOrDefaultAsync(x => x.Id == id);
-			if(existTutor == null)
+			var existCourse = await pageContext.Courses.FirstOrDefaultAsync(i => i.Id == id);
+			if (existCourse == null)
 			{
 				return null;
 			}
+            course.UpdatedBy = userRole;
+            course.UpdatedDate = DateTime.Now;
 
-			existTutor.Name = tutors.Name;
-			existTutor.FacebookUrl = tutors.FacebookUrl;
-			existTutor.ImgUrl = tutors.ImgUrl;
-			existTutor.Description = tutors.Description;
-			existTutor.Email = tutors.Email;
-			existTutor.Phone = tutors.Phone;
-
-			return existTutor;
+			course.Subject = existCourse.Subject;
+			await pageContext.SaveChangesAsync();
+            return course;
 		}
-	}
+
+        public Course GetCourse(int id)
+        {
+            
+            var course = pageContext.Courses.FirstOrDefault(x => x.Id == id);
+            if (course == null)
+            {
+                return null;
+            }
+            return course;
+            
+        }
+
+        public async Task<int> GetIdByNameAsync(string name)
+        {
+			var courseId =  await pageContext.Courses.FirstOrDefaultAsync(n => n.Subject == name);
+			return courseId.Id;
+        }
+    }
 }
-*/

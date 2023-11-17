@@ -14,7 +14,7 @@ namespace Infrastructure.Data.Config
 			builder.HasKey(p => p.Id);
 			builder.Property(p => p.Subject).HasMaxLength(255);
 
-			builder.HasMany(p => p.CourseTutors).WithOne(p => p.Course).HasForeignKey(p => p.CourseId);
+			builder.HasMany(p => p.Tutors).WithOne(p => p.Course).HasForeignKey(p => p.CourseId);
 
 			builder.Property(p => p.CreatedBy).IsRequired().HasMaxLength(255);
 			builder.Property(p => p.CreatedDate).IsRequired();

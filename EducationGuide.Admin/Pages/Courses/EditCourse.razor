@@ -1,0 +1,86 @@
+﻿@page "/edit-course"
+@using Core.Models.Domain;
+@using Core.Models.Repository;
+@using EducationGuide.Admin.Authentication;
+@using System.Security.Claims;
+@using EducationGuide.Admin.Data;
+@inject IConfiguration config
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject DialogService DialogService
+@inject TooltipService TooltipService
+@inject ContextMenuService ContextMenuService
+@inject NotificationService NotificationService
+@inject EducationGuideAuthenticationStateProvider EducationGuideAuthenticationStateProvider
+@inject ImageUploadTutorService imageUploadService
+<PageTitle>Edit Course</PageTitle>
+
+    <RadzenColumn SizeMD=12>
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">Cannot save Tutor</RadzenAlert>
+        <RadzenTemplateForm TItem="   Core.Models.Domain.Course" Data="@_course" Visible="@(_course != null)" Submit="@FormSubmit">
+
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Name" Component="Name" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@_course.Subject" Name="Name" />
+                    <RadzenRequiredValidator Component="Name" Text="Name is required" />
+                </RadzenColumn>
+            </RadzenRow>
+
+
+
+          <RadzenStack  Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+          </RadzenStack>
+        </RadzenTemplateForm>
+    </RadzenColumn>
+
+@code {
+
+
+    [Inject]
+    public ICourseRepository _courseRepository { get; set; }
+
+
+    [Parameter]
+    public int Id { get; set; }
+    protected string userRole;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _course = await _courseRepository.GetCourseAsync(Id);
+        var authState = await EducationGuideAuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            // Get the user's role
+            userRole = user.FindFirst(ClaimTypes.Role)?.Value;
+        }
+    }
+    protected bool errorVisible;
+    protected Core.Models.Domain.Course _course;
+
+    protected async Task FormSubmit()
+    {
+        try
+        {
+            
+            await _courseRepository.UpdateAsync(Id,_course,userRole);
+            DialogService.Close(_course);
+        }
+        catch (Exception ex)
+        {
+            errorVisible = true;
+        }
+    }
+
+    protected async Task CancelButtonClick(MouseEventArgs args)
+    {
+        DialogService.Close(null);
+    }
+
+}

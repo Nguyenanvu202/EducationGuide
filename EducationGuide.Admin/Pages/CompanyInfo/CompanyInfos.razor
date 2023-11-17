@@ -1,0 +1,82 @@
+﻿@page "/company-infos"
+@using Core.Models.Domain
+@using Core.Models.Repository;
+@inject ICompanyInfoRepository _companyInfoRepository
+
+    <AuthorizeView>
+        <Authorized>
+<PageTitle>CompanyInfos</PageTitle>
+<RadzenStack>
+
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="200px"  AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@companyInfos" TItem="CompanyInfo" RowSelect="@EditRow">
+            <Columns>
+
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="Name" Title="Name">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="Adress" Title="Adress">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="Email" Title="Email">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="Phone" Title="Phone">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="CreatedDate" Title="Created Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="CreatedBy" Title="Created By">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="UpdatedDate" Title="Updated Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="CompanyInfo" Property="UpdatedBy" Title="Updated By">
+                </RadzenDataGridColumn>
+
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>
+
+        </Authorized>
+<NotAuthorized>You are not authorized</NotAuthorized>
+
+    </AuthorizeView>
+@code{
+    
+    [Inject]
+    protected IJSRuntime JSRuntime { get; set; }
+
+    [Inject]
+    protected NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    protected DialogService DialogService { get; set; }
+
+    [Inject]
+    protected TooltipService TooltipService { get; set; }
+
+    [Inject]
+    protected ContextMenuService ContextMenuService { get; set; }
+
+    [Inject]
+    protected NotificationService NotificationService { get; set; }
+
+
+    protected IEnumerable<CompanyInfo> companyInfos;
+
+    protected RadzenDataGrid<CompanyInfo> grid0;
+    protected override async Task OnInitializedAsync()
+    {
+        companyInfos = await _companyInfoRepository.GetAllAsync();
+    }
+
+
+    protected async Task EditRow(CompanyInfo args)
+    {
+        await DialogService.OpenAsync<EditCompanyInfo>("Edit CompanyInfo", new Dictionary<string, object> { { "Id", args.Id } });
+    }
+
+
+}

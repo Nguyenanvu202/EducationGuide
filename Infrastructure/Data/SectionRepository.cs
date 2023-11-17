@@ -56,8 +56,8 @@ namespace Infrastructure.Data
         {
             // Find the existing section based on Id and pageId
             var existSection = await _pageContext.Sections
-                .Where(s => s.PageId == pageId && s.Id == Id)
-                .FirstOrDefaultAsync();
+                .Where(s => s.PageId == pageId)
+                .FirstOrDefaultAsync(s => s.Id == Id);
 
             if (existSection == null)
             {
@@ -71,7 +71,7 @@ namespace Infrastructure.Data
             section.Content = existSection.Content;
             section.ImageUrl = existSection.ImageUrl;
             section.BackgroundUrl = existSection.BackgroundUrl;
-
+			section.ButtonUrl = existSection.ButtonUrl;
             await _pageContext.SaveChangesAsync();
 
             return section;

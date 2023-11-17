@@ -1,0 +1,106 @@
+﻿@page "/edit-company-info"
+@inject ICompanyInfoRepository _companyInfoRepository
+@using Core.Models.Domain
+@using Core.Models.Repository;
+@using System.Security.Claims;
+@using EducationGuide.Admin.Authentication;
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject DialogService DialogService
+@inject TooltipService TooltipService
+@inject ContextMenuService ContextMenuService
+@inject NotificationService NotificationService
+@inject EducationGuideAuthenticationStateProvider EducationGuideAuthenticationStateProvider
+
+
+            <PageTitle>Edit CompanyInfo</PageTitle>
+
+    <RadzenColumn SizeMD=12>
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">Cannot save CompanyInfo</RadzenAlert>
+        <RadzenTemplateForm TItem="CompanyInfo" Data="@companyInfo" Visible="@(companyInfo != null)" Submit="@FormSubmit">
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Name" Component="Name" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@companyInfo.Name" Name="Name" />
+                    <RadzenRequiredValidator Component="Name" Text="Name is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Adress" Component="Adress" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@companyInfo.Adress" Name="Adress" />
+                    <RadzenRequiredValidator Component="Adress" Text="Adress is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Email" Component="Email" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@companyInfo.Email" Name="Email" />
+                    <RadzenRequiredValidator Component="Email" Text="Email is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Phone" Component="Phone" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@companyInfo.Phone" Name="Phone" />
+                    <RadzenRequiredValidator Component="Phone" Text="Phone is required" />
+                </RadzenColumn>
+            </RadzenRow>
+
+
+          <RadzenStack  Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+          </RadzenStack>
+        </RadzenTemplateForm>
+    </RadzenColumn>
+
+@code
+{
+
+
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private string userRole;
+    protected override async Task OnInitializedAsync()
+    {
+        companyInfo = await _companyInfoRepository.GetCompanyAsync(Id);
+        var authState = await EducationGuideAuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            // Get the user's role
+            userRole = user.FindFirst(ClaimTypes.Role)?.Value;
+        }
+    }
+    protected bool errorVisible;
+    protected CompanyInfo companyInfo;
+
+    protected async Task FormSubmit()
+    {
+        try
+        {
+            await _companyInfoRepository.UpdateCompanyAsync(Id, companyInfo);
+            DialogService.Close(companyInfo);
+        }
+        catch (Exception ex)
+        {
+            errorVisible = true;
+        }
+    }
+
+    protected async Task CancelButtonClick(MouseEventArgs args)
+    {
+        DialogService.Close(null);
+    }
+}

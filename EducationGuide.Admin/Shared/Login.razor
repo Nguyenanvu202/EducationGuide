@@ -1,33 +1,29 @@
 ﻿@using Radzen
-
 @using EducationGuide.Admin.Authentication
 @inject EducationGuideAuthenticationStateProvider _authenticationStateProvider
 
 <AuthorizeView>
     <NotAuthorized>
-        
-<RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px;">
-    <RadzenTemplateForm Data=@("SimpleLogin")  Context="loginFormContext">
-        <RadzenLogin Login=@(args => OnLogin(args, "SimpleLogin"))
-        AllowRegister="false" AllowResetPassword="false" />
-    </RadzenTemplateForm>
-</RadzenCard>
-
+        <RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px;">
+            <RadzenTemplateForm Data=@("SimpleLogin")  Context="loginFormContext">
+                <RadzenLogin Login=@(args => OnLogin(args, "SimpleLogin"))
+                             AllowRegister="false" AllowResetPassword="false" />
+            </RadzenTemplateForm>
+        </RadzenCard>
     </NotAuthorized>
+    <Authorized>You are logged in</Authorized>
 </AuthorizeView>
-
 
 @code {
     string userName = "admin";
     string password = "admin";
-
+    string errorMessage = string.Empty;
 
     async Task OnLogin(LoginArgs args, string name)
     {
 
-        await _authenticationStateProvider.LoginAsync(args.Username, args.Password);
+            await _authenticationStateProvider.LoginAsync(args.Username, args.Password);
 
+        
     }
-
 }
-

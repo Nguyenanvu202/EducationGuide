@@ -7,7 +7,7 @@
 @using Core.Models.Repository;
 @using System.Text.Json;
 @using Core.Models.Domain;
-
+@inject IConfiguration config
 <div class = "Section">
 
 	@foreach (var section_1 in _sections)
@@ -16,7 +16,7 @@
 			<div class = "@section_1.ClassName">
 			@if (!string.IsNullOrEmpty(section_1.BackgroundUrl))
 			{
-				<img class = "Image" src="@section_1.BackgroundUrl" alt="ClassName" />
+						<img class = "Image" src="@CreateWebPath(section_1.BackgroundUrl)" alt="ClassName" />
 			}
 			<div class = "Text">
 
@@ -33,12 +33,13 @@
 			</div>
 			@if (!string.IsNullOrEmpty(section_1.ImageUrl))
 			{
-				<img class = "Image" src="@section_1.ImageUrl" alt="ClassName" />
+						<img class = "Image" src="@CreateWebPath(section_1.ImageUrl)" alt="ClassName" />
 			}
 			</div>
 	}
 </div>
 
+	
 
 <div class = "Contact" style = "padding-bottom : 75px">
 	<div class = "TitleGroup" >
@@ -50,7 +51,8 @@
 		</p>
 	</div>
 	<div class = "Content">
-
+		@foreach (var _companyInfo in _companyInfos)
+		{
 		@*contact-company*@
 		<div class = "Contact-col">
 			<h5 class = "Adress">
@@ -64,6 +66,8 @@
 				Email: @_companyInfo.Email
 			</h5>
 		</div>
+}
+
 		@*location*@
 		<div class= "Location">
 		<iframe
@@ -107,12 +111,12 @@
 	private Page _page = new Page();
 	private List<Section> _sections = new List<Section>();
 	private Contact _newContact = new Contact();
-	private CompanyInfo _companyInfo = new CompanyInfo();
+	private List<CompanyInfo> _companyInfos = new List<CompanyInfo>();
 	protected override async Task OnParametersSetAsync()
 	{
 		_page = await _pageRepository.GetByUrlAsync("/");
 		_sections = await _sectionRepository.GetSectionsByPageId(_page.Id);
-		_companyInfo = await _companyInfoRepository.GetCompanyAsync(1);
+		_companyInfos = await _companyInfoRepository.GetAllAsync();
 		await base.OnInitializedAsync();
 	}
 
@@ -131,5 +135,10 @@
 
 		}
 
+	}
+
+	private string CreateWebPath(string relativePath)
+	{
+		return Path.Combine(config.GetValue<string>("WebStorageRoot")!, relativePath);
 	}
 }

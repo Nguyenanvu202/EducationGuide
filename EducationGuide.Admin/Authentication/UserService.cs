@@ -11,7 +11,7 @@ namespace EducationGuide.Admin.Authentication
 	{
 		private readonly ProtectedLocalStorage _protectedLocalStorage;
 		private readonly PageContext _pageContext;
-        private readonly string _storageKey = "blazorSchoolIdentity";
+        private readonly string _storageKey = "educationGuideStorage";
 
 		public UserService(ProtectedLocalStorage protectedLocalStorage, PageContext pageContext)
 		{

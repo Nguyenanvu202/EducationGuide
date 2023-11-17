@@ -17,7 +17,7 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -149,45 +149,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("Course", (string)null);
                 });
 
-            modelBuilder.Entity("Core.Models.Domain.CourseTutor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TutorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("TutorId");
-
-                    b.ToTable("CourseTutor", (string)null);
-                });
-
             modelBuilder.Entity("Core.Models.Domain.Page", b =>
                 {
                     b.Property<int>("Id")
@@ -203,6 +164,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("NamePage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
@@ -323,6 +288,9 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -368,6 +336,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Tutors", (string)null);
                 });
@@ -420,25 +390,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Core.Models.Domain.CourseTutor", b =>
-                {
-                    b.HasOne("Core.Models.Domain.Course", "Course")
-                        .WithMany("CourseTutors")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.Models.Domain.Tutors", "Tutors")
-                        .WithMany("CourseTutors")
-                        .HasForeignKey("TutorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Tutors");
-                });
-
             modelBuilder.Entity("Core.Models.Domain.Section", b =>
                 {
                     b.HasOne("Core.Models.Domain.Page", "Page")
@@ -450,19 +401,25 @@ namespace Infrastructure.Migrations
                     b.Navigation("Page");
                 });
 
+            modelBuilder.Entity("Core.Models.Domain.Tutors", b =>
+                {
+                    b.HasOne("Core.Models.Domain.Course", "Course")
+                        .WithMany("Tutors")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("Core.Models.Domain.Course", b =>
                 {
-                    b.Navigation("CourseTutors");
+                    b.Navigation("Tutors");
                 });
 
             modelBuilder.Entity("Core.Models.Domain.Page", b =>
                 {
                     b.Navigation("Sections");
-                });
-
-            modelBuilder.Entity("Core.Models.Domain.Tutors", b =>
-                {
-                    b.Navigation("CourseTutors");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,8 @@
 @using Infrastructure
 @using Infrastructure.Data;
 @inject ISectionRepository _sectionRepository
-
+@inject IPageRepository _pageRepository
+@inject IConfiguration config
 
 <div class="AboutUs">
     <h3 class="Title">About Us</h3>
@@ -15,7 +16,7 @@
         @foreach (var section1 in _section)
         {
             <div class="Section">
-                <img class="Image" style = "width = 20px" src="@section1.ImageUrl" alt="" />
+                    <img class="Image" style = "width = 20px" src="@CreateWebPath(section1.ImageUrl)" alt="" />
                 <h3 class="Name">@section1.Title</h3>
                 <p class="SectionContent">@section1.Content</p>
             </div>
@@ -25,10 +26,15 @@
 
 @code {
     List<Section> _section = new List<Section>();
-
+    private Page _page = new Page();
     protected override async Task OnInitializedAsync()
     {
-        _section = await _sectionRepository.GetSectionsByPageId(9);
+        _page = await _pageRepository.GetByUrlAsync("/aboutus");
+        _section = await _sectionRepository.GetSectionsByPageId(_page.Id);
+    }
+    private string CreateWebPath(string relativePath)
+    {
+        return Path.Combine(config.GetValue<string>("WebStorageRoot")!, relativePath);
     }
 }
 

@@ -20,7 +20,8 @@ public class UserAuth
         new(ClaimTypes.Name, Username),
         new(ClaimTypes.Hash, Password),
         new(ClaimTypes.Email, Email),
-    },"BlazorSchool"));
+        new(ClaimTypes.Role, Roles)
+    },"EducationGuide"));
 
     public static UserAuth FromClaimsPrincipal(ClaimsPrincipal principal) => new UserAuth
     {
